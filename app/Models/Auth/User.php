@@ -55,4 +55,31 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserTitle::class);
     }
+
+    /**
+     * Functions
+     */
+
+    public function vanish()
+    {
+        if($this->data()->exists()) {
+            $this->data()->delete();
+        }
+        if($this->photo()->exists()) {
+            $this->photo()->delete();
+        }
+        if($this->projects()->exists()) {
+            $this->projects()->delete();
+        }
+        if($this->services()->exists()) {
+            $this->services()->delete();
+        }
+        if($this->titles()->exists()) {
+            $this->titles()->delete();
+        }
+        if($this->resume()->exists()) {
+            $this->resume()->delete();
+        }
+        return $this->delete();
+    }
 }

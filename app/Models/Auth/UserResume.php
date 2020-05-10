@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserResume extends Model
 {
+    protected $fillable = ['file'];
+
     public function user()
     {
         return $this->hasOne(User::class);
