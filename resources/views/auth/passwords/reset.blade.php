@@ -1,65 +1,84 @@
-@extends('layouts.app')
+@extends('adminlte::master')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+@section('adminlte_css')
+    @yield('css')
+@stop
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
+@section('classes_body', 'login-page')
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+@php( $password_reset_url = View::getSection('password_reset_url') ?? config('adminlte.password_reset_url', 'password/reset') )
+@php( $dashboard_url = View::getSection('dashboard_url') ?? config('adminlte.dashboard_url', 'home') )
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+@if (config('adminlte.use_route_url', false))
+    @php( $password_reset_url = $password_reset_url ? route($password_reset_url) : '' )
+    @php( $dashboard_url = $dashboard_url ? route($dashboard_url) : '' )
+@else
+    @php( $password_reset_url = $password_reset_url ? url($password_reset_url) : '' )
+    @php( $dashboard_url = $dashboard_url ? url($dashboard_url) : '' )
+@endif
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+@section('body')
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="{{ $dashboard_url }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">{{ trans('adminlte::adminlte.password_reset_message') }}</p>
+                <form action="{{ $password_reset_url }}" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="token" value="{{ $token }}">
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{ trans('adminlte::adminlte.email') }}" autofocus>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        @if ($errors->has('email'))
+                            <div class="invalid-feedback">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" placeholder="{{ trans('adminlte::adminlte.password') }}">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                        @if ($errors->has('password'))
+                            <div class="invalid-feedback">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password_confirmation" class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}"
+                               placeholder="{{ trans('adminlte::adminlte.retype_password') }}">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
+                        @if ($errors->has('password_confirmation'))
+                            <div class="invalid-feedback">
+                                <strong>{{ $errors->first('password_confirmation') }}</strong>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                        @endif
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">
+                        {{ trans('adminlte::adminlte.reset_password') }}
+                    </button>
+                </form>
             </div>
         </div>
     </div>
-</div>
-@endsection
+@stop
+
+@section('adminlte_js')
+    <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
+    @stack('js')
+    @yield('js')
+@stop
