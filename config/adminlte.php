@@ -209,14 +209,53 @@ return [
 
     'menu' => [
         [
-            'text' => 'Basic Data',
+            'text' => 'Portfolio',
             'url'  => '#',
             'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Basic Data',
+                    'icon' => 'fas fa-fw fa-file-word',
+                    'url' => '#'
+                ],
+                [
+                    'text' => 'Projects',
+                    'icon' => 'fas fa-fw fa-paper-plane',
+                    'url' => '#'
+                ],
+                [
+                    'text' => 'Resume',
+                    'icon' => 'fas fa-fw fa-file-pdf',
+                    'url' => '#'
+                ],
+            ]
+        ],
+        [
+            'text' => 'Inbox',
+            'icon' => 'fas fa-fw fa-inbox',
+            'url' => '#'
         ],
         [
             'text' => 'Settings',
             'url'  => '#',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-fw fa-cogs',
+            'submenu' => [
+                [
+                    'text' => 'Site Settings',
+                    'icon' => 'fas fa-fw fa-hammer',
+                    'url' => '#'
+                ],
+                [
+                    'text' => 'App Settings',
+                    'icon' => 'fas fa-fw fa-tools',
+                    'url' => '#'
+                ],
+                [
+                    'text' => 'User Settings',
+                    'icon' => 'fas fa-fw fa-user-cog',
+                    'url' => '#'
+                ],
+            ]
         ]
     ],
 

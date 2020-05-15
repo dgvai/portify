@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMetaStatisticsTable extends Migration
+class CreateDownloadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateMetaStatisticsTable extends Migration
      */
     public function up()
     {
-        Schema::create('meta_statistics', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->bigInteger('visitors')->default(0);
-            $table->bigInteger('downloads')->default(0);
+        Schema::create('downloads', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('ip');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateMetaStatisticsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meta_statistics');
+        Schema::dropIfExists('downloads');
     }
 }

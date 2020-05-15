@@ -5,17 +5,16 @@ namespace App\Models\Utils;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Visitor extends Model
+class Download extends Model
 {
-    protected $fillable = ['ip','page'];
+    protected $fillable = ['ip'];
 
-    public static function track($ip,$page)
+    public static function track($ip)
     {
         if(!self::exists($ip))
         {
             self::create([
-                'ip' => $ip,
-                'page' => $page
+                'ip' => $ip
             ]);
         }
     }
