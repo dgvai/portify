@@ -35,6 +35,7 @@ class AddDefaultUser extends Migration
         $user->projects()->create([
             'title' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
             'image' => 'default-project.jpg',
+            'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.',
             'link' => '#'
         ]);
 
@@ -42,34 +43,28 @@ class AddDefaultUser extends Migration
             'file' => null
         ]);
 
-        $user->services()->create([
-            'title' => 'Web Development',
-            'icon' => 'fas fa-star',
-            'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
+        $user->services()->createMany([
+            [
+                'title' => 'Web Development',
+                'icon' => 'fas fa-star',
+                'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
+            ],
+            [
+                'title' => 'Web Design',
+                'icon' => 'fas fa-star',
+                'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
+            ],
+            [
+                'title' => 'UI Design',
+                'icon' => 'fas fa-star',
+                'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
+            ]
         ]);
 
-        $user->services()->create([
-            'title' => 'Web Design',
-            'icon' => 'fas fa-star',
-            'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
-        ]);
-
-        $user->services()->create([
-            'title' => 'UI Design',
-            'icon' => 'fas fa-star',
-            'description' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.'
-        ]);
-
-        $user->titles()->create([
-            'title' => 'Web Developer'
-        ]);
-
-        $user->titles()->create([
-            'title' => 'Web Designer'
-        ]);
-
-        $user->titles()->create([
-            'title' => 'UI Designer'
+        $user->titles()->createMany([
+            ['title' => 'Web Developer'],
+            ['title' => 'Web Designer'],
+            ['title' => 'UI Designer'],
         ]);
     }
 

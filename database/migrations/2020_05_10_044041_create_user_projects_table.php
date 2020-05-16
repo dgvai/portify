@@ -18,6 +18,7 @@ class CreateUserProjectsTable extends Migration
             $table->integer('user_id');
             $table->string('title')->nullable();
             $table->string('image')->nullable();
+            $table->text('description')->nullable();
             $table->string('link',11000)->nullable();
             $table->timestamps();
         });
