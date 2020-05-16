@@ -221,7 +221,7 @@ return [
                 [
                     'text' => 'Projects',
                     'icon' => 'fas fa-fw fa-paper-plane',
-                    'url' => '#'
+                    'route' => 'portfolio.projects'
                 ],
                 [
                     'text' => 'Resume',

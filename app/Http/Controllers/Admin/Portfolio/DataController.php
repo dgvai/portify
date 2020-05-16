@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Portfolio;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class DataController extends Controller
 {
@@ -29,13 +30,21 @@ class DataController extends Controller
     public function updateCover(Request $request)
     {
         $request->validate([
-            'photo' => 'required|mime:jpg,jpeg,png,svg'
+            'photo' => 'required|mimes:jpg,jpeg,png,svg'
         ]);
         $user = auth()->user();
-        if($user->photo->cover != 'default-user.jpg')
+        if($request->hasFile('photo')) 
         {
-            unlink(public_path('storage/user/cover/'.$user->photo->cover));
+            if($user->photo->cover != 'default-user.jpg')
+            {
+                unlink(public_path('storage/user/cover/'.$user->photo->cover));
+            }
+            
+            $filename = filename('cover',$request->photo->extension());
+            resize($request->photo,public_path('storage/user/cover'),$filename,1000);
+            $user->photo->cover = $filename;
+            $user->photo->save();
+            return back()->with('toast_success',__('Updated!'));
         }
-        // filename helpers etc
     }
 }

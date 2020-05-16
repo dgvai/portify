@@ -11,9 +11,10 @@ Route::middleware('auth')->group(function(){
     
     Route::prefix('portfolio')->group(function(){
         Route::get('basic-data','Portfolio\DataController@index')->name('portfolio.basic');
-
         Route::post('update/data','Portfolio\DataController@updateData')->name('portfolio.update.data');
         Route::post('update/cover','Portfolio\DataController@updateCover')->name('portfolio.update.cover');
+
+        Route::get('projects','Portfolio\ProjectController@index')->name('portfolio.projects');
     });
 
     Route::prefix('server')->group(function(){

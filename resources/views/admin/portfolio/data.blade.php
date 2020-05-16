@@ -28,7 +28,7 @@
                     <img class="img-fluid figure-img" src="{{$user->cover_photo}}" />
                     <figcaption class="figure-caption text-center">@lang('Current Cover Photo')</figcaption>
                 </figure>
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('portfolio.update.cover')}}" method="POST" enctype="multipart/form-data">
                     @csrf 
                     <x-dg-input-file name="photo" :label="__('Cover Photo')" :placeholder="__('Select an image file to upload')" :required="true"/>
                     <x-dg-submit :label="__('Save')" />
