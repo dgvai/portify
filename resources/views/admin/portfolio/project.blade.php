@@ -97,6 +97,20 @@
                     $('#project-plate').modal('show');
                 });
             });
+
+            $('#project_table tbody').on('click','.delete',function(){
+                id = project_table.row($(this).parents('tr')).data().id;
+                swalConfirm(function(){
+                    $.post("{{route('portfolio.delete.project')}}",{id:id, _token:'{{csrf_token()}}'},function(r){
+                        if(r.success) {
+                            project_table.ajax.reload();
+                            swalToast('success',r.msg);
+                        } else {
+                            swalToast('error',r.msg);
+                        }
+                    });
+                });
+            });
         });
     </script>
 @stop

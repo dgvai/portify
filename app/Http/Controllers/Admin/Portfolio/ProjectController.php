@@ -74,6 +74,7 @@ class ProjectController extends Controller
 
     public function delete(Request $request)
     {
-        
+        $vanished = UserProject::vanish($request->id);
+        return $vanished ? ['success' => true, 'msg' => 'Deleted!'] : ['success' => false, 'msg' => 'Error deleting!'];
     }
 }

@@ -18,4 +18,11 @@ class UserProject extends Model
     {
         return asset('storage/user/projects/'.$this->image);
     }
+
+    public static function vanish($id)
+    {
+        $project = self::find($id);
+        unlink(public_path('storage/user/projects/'.$project->image));
+        return $project->delete() ? true : false;
+    }
 }
