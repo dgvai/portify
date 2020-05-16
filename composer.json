@@ -13,6 +13,8 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
+        "intervention/image": "^2.5",
+        "jaybizzle/crawler-detect": "^1.2",
         "jeroennoten/laravel-adminlte": "^3.2",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
@@ -43,6 +45,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Helpers/helper.php"
         ]
     },
     "autoload-dev": {

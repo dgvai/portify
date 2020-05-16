@@ -29,12 +29,12 @@ class AddDefaultUser extends Migration
         ]);
 
         $user->photo()->create([
-            'cover' => null
+            'cover' => 'default-user.jpg'
         ]);
 
         $user->projects()->create([
             'title' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-            'image' => null,
+            'image' => 'default-project.jpg',
             'link' => '#'
         ]);
 

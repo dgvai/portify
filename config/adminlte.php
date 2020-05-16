@@ -216,7 +216,7 @@ return [
                 [
                     'text' => 'Basic Data',
                     'icon' => 'fas fa-fw fa-file-word',
-                    'url' => '#'
+                    'route' => 'portfolio.basic'
                 ],
                 [
                     'text' => 'Projects',
@@ -345,7 +345,7 @@ return [
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-minimal.min.css',
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-flat-top.min.css',
                 ],
                 [
                     'type' => 'js',
@@ -439,6 +439,17 @@ return [
                     'location' => '/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js',
                 ],
             ],
+        ],
+        [
+            'name' => 'Main',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/js/main.js'
+                ]
+            ]
         ],
     ],
 ];

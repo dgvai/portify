@@ -57,6 +57,15 @@ class User extends Authenticatable
     }
 
     /**
+     * attributes
+     */
+
+    public function getCoverPhotoAttribute()
+    {
+        return asset('storage/user/cover/'.$this->photo->cover);
+    }
+
+    /**
      * Functions
      */
 
