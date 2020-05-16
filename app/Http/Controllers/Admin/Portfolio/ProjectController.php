@@ -3,12 +3,77 @@
 namespace App\Http\Controllers\Admin\Portfolio;
 
 use App\Http\Controllers\Controller;
+use App\Models\Auth\UserProject;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProjectController extends Controller
 {
     public function index()
     {
-        return view('admin.portfolio.project');
+        return view('admin.portfolio.project',['user' => auth()->user()]);
+    }
+
+    public function getProject(Request $request)
+    {
+        return new JsonResource(UserProject::find($request->id));
+    }
+
+    public function getProjects(Request $request)
+    {
+        return JsonResource::collection(auth()->user()->projects->sortByDesc('id'));
+    }
+
+    public function add(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string',
+            'image' => 'required|mimes:jpg,jpeg,png,svg',
+            'description' => 'required',
+            'link' => 'required'
+        ]);
+
+        if($request->has('image'))
+        {
+            $filename = filename('project',$request->image->extension());
+            thumbnail($request->image,public_path('storage/user/projects'),$filename,600,400);
+        }
+        $b = auth()->user()->projects()->create([
+            'title' => $request->title,
+            'image' => $filename,
+            'description' => $request->description,
+            'link' => $request->link,
+        ]);
+        return $b ? back()->with('toast_success','Created!') : back()->with('toast_error','Error creating!');
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string',
+            'description' => 'required',
+            'link' => 'required'
+        ]);
+
+        $project = UserProject::find($request->id);
+
+        if($request->has('image'))
+        {
+            unlink(public_path('storage/user/projects/'.$project->image));
+            $filename = filename('project',$request->image->extension());
+            thumbnail($request->image,public_path('storage/user/projects'),$filename,600,400);
+            $project->image = $filename;
+        }
+
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->link = $request->link;
+
+        return $project->save() ? back()->with('toast_success','Updated!') : back()->with('toast_error','Error updating!');
+    }
+
+    public function delete(Request $request)
+    {
+        
     }
 }
