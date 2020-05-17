@@ -12,4 +12,10 @@ class UserService extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    public static function vanish($id)
+    {
+        $service = self::find($id);
+        return $service->delete() ? true : false;
+    }
 }

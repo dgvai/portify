@@ -219,6 +219,11 @@ return [
                     'route' => 'portfolio.basic'
                 ],
                 [
+                    'text' => 'Services',
+                    'icon' => 'fas fa-fw fa-star',
+                    'route' => 'portfolio.services'
+                ],
+                [
                     'text' => 'Projects',
                     'icon' => 'fas fa-fw fa-paper-plane',
                     'route' => 'portfolio.projects'
@@ -367,6 +372,11 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => '/plugins/select2/css/select2-bootstrap4.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/plugins/select2/js/select2.min.js',
                 ],
                 [
                     'type' => 'js',
