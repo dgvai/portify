@@ -40,7 +40,7 @@ class AddDefaultUser extends Migration
         ]);
 
         $user->resume()->create([
-            'file' => null
+            'file' => 'demo-pdf.pdf'
         ]);
 
         $user->services()->createMany([

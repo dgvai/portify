@@ -231,7 +231,7 @@ return [
                 [
                     'text' => 'Resume',
                     'icon' => 'fas fa-fw fa-file-pdf',
-                    'url' => '#'
+                    'route' => 'portfolio.resume'
                 ],
             ]
         ],

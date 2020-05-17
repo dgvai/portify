@@ -12,4 +12,9 @@ class UserResume extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    public function getFilePathAttribute()
+    {
+        return asset('storage/user/resume/'.$this->file);
+    }
 }

@@ -27,6 +27,10 @@ Route::middleware('auth')->group(function(){
         Route::post('add/project','Portfolio\ProjectController@add')->name('portfolio.add.project');
         Route::post('update/project','Portfolio\ProjectController@update')->name('portfolio.update.project');
         Route::post('delete/project','Portfolio\ProjectController@delete')->name('portfolio.delete.project');
+
+        Route::get('resume','Portfolio\ResumeController@index')->name('portfolio.resume');
+        Route::post('resume/toggle','Portfolio\ResumeController@toggle')->name('portfolio.resume.toggle');
+        Route::post('resume/upload','Portfolio\ResumeController@upload')->name('portfolio.resume.upload');
     });
 
     Route::prefix('server')->group(function(){
