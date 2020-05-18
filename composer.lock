@@ -145,16 +145,16 @@
         },
         {
             "name": "dgvai/laravel-adminlte-components",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dgvai/laravel-adminlte-components.git",
-                "reference": "dff9a08227ac66e1bb4a925bfd978d519869a48a"
+                "reference": "b75fcd60475e474f2b21b2ef0e2921d3d25ef392"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dgvai/laravel-adminlte-components/zipball/dff9a08227ac66e1bb4a925bfd978d519869a48a",
-                "reference": "dff9a08227ac66e1bb4a925bfd978d519869a48a",
+                "url": "https://api.github.com/repos/dgvai/laravel-adminlte-components/zipball/b75fcd60475e474f2b21b2ef0e2921d3d25ef392",
+                "reference": "b75fcd60475e474f2b21b2ef0e2921d3d25ef392",
                 "shasum": ""
             },
             "type": "laravel-package",
@@ -181,7 +181,7 @@
                 }
             ],
             "description": "Laravel Blade Components For AdminLTE Bootstrap Admin Template",
-            "time": "2020-05-17T13:55:26+00:00"
+            "time": "2020-05-18T08:58:39+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

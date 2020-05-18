@@ -11,6 +11,8 @@ Route::middleware('auth')->group(function(){
         Route::get('projects','Portfolio\ProjectController@getProjects')->name('get.projects');
         Route::get('service','Portfolio\ServiceController@getService')->name('get.service');
         Route::get('services','Portfolio\ServiceController@getServices')->name('get.services');
+        Route::get('inbox','InboxController@getInbox')->name('get.inbox');
+        Route::get('inboxes','InboxController@getInboxes')->name('get.inboxes');
     });
     
     Route::prefix('portfolio')->group(function(){
@@ -31,6 +33,10 @@ Route::middleware('auth')->group(function(){
         Route::get('resume','Portfolio\ResumeController@index')->name('portfolio.resume');
         Route::post('resume/toggle','Portfolio\ResumeController@toggle')->name('portfolio.resume.toggle');
         Route::post('resume/upload','Portfolio\ResumeController@upload')->name('portfolio.resume.upload');
+    });
+
+    Route::prefix('inbox')->group(function(){
+        Route::get('/','InboxController@index')->name('inbox');
     });
 
     Route::prefix('server')->group(function(){

@@ -238,7 +238,7 @@ return [
         [
             'text' => 'Inbox',
             'icon' => 'fas fa-fw fa-inbox',
-            'url' => '#'
+            'route' => 'inbox'
         ],
         [
             'text' => 'Settings',
