@@ -26,7 +26,7 @@ class ResumeController extends Controller
         if($request->has('resume'))
         {
             $filename = filename('resume',$request->resume->extension());
-            $request->resume->storeAs('resume',$filename,'public');
+            $request->resume->storeAs('user/resume',$filename,'public');
             $c = auth()->user()->resume()->updateOrCreate(['id' => 1],['file' => $filename]);
             return $c ? back()->with('toast_success','Added!') : back()->with('toast_error','Error addinng!');
         }

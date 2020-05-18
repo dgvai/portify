@@ -33,6 +33,7 @@ use App\Models\System\Configuration;
         <form action="{{route('portfolio.resume.upload')}}" method="POST" enctype="multipart/form-data">
             @csrf 
             <x-dg-input-file name="resume" id="file" :label="__('Upload Resume')" :placeholder="__('Choose pdf file to upload')" :required="true"/>
+            <x-dg-submit label="Add" />
         </form>
     </x-dg-modal>
 @stop
