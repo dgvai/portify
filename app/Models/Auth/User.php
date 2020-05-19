@@ -65,6 +65,11 @@ class User extends Authenticatable
         return asset('storage/user/cover/'.$this->photo->cover);
     }
 
+    public function getFullNameAttribute()
+    {
+        return $this->data->first_name . ' ' . $this->data->last_name;
+    }
+
     /**
      * Functions
      */
