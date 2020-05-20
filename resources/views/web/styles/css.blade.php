@@ -33,6 +33,7 @@
     .bg-light {background-color: var(--color-light);}
     .bg-main {background-color: var(--color-primary);}
     .primary {color: var(--color-primary);}
+    .light {color: var(--color-light);}
 
     .white-box {
         background: var(--color-light);
@@ -45,6 +46,24 @@
 
     .white-box:hover {
         box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+    }
+
+    .outline-button {
+        background: transparent;
+        border: 2px var(--color-primary) solid;
+        font-size: 0.6rem;
+        border-radius: 5px;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        padding: 0.5rem;
+        text-decoration: none;
+        transition: all 0.5s;
+    }
+
+    .outline-button:hover {
+        background: var(--color-primary);
+        color: var(--color-light);
+        text-decoration: none;
     }
     
     #portfolio {
@@ -87,6 +106,9 @@
     #nav ul li {
         padding: 10px;
         display: inline;
+    }
+    #nav ul li:hover {
+        border-bottom: var(--color-gray) 4px solid;
     }
     #nav ul li a {
         color: var(--color-light);
@@ -169,6 +191,7 @@
         padding: 3rem 0;
         box-shadow: 0 0 20px rgba(0,0,0,0.25);
         z-index: 2;
+        position: relative;
     }
 
     #services .service-items {
@@ -222,6 +245,43 @@
         #services .service-items {
             flex-direction: column;
         }
+    }
+
+    #projects {
+        min-height: 100vh;
+        z-index: 1;
+    }
+
+    #projects .project-items {
+        display: flex;
+        justify-content: center;
+    }
+
+    #projects .project-items .item {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #projects .project-items .item .poster, #projects .project-items .item .data {
+        flex : 1
+    }
+
+    #projects .project-items .item .poster img {
+        width: 25rem;
+        border-radius: 5px;
+    }
+
+    #projects .project-items .item .data {
+        position: relative;
+    }
+    #projects .project-items .item .data .bot-btn {
+        position: absolute;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
     }
 
 </style>

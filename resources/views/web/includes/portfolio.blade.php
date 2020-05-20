@@ -15,11 +15,11 @@
     </div>
     <div id="nav" class="containere-fluid">
         <ul class="navbar container pb-0">
-            <li class="active"><a href="#intro">@lang('Intro')</a></li>
-            <li><a href="#services">@lang('Services')</a></li>
-            <li><a href="#projects">@lang('Projects')</a></li>
-            <li><a href="#resume">@lang('Resume')</a></li>
-            <li><a href="#contact">@lang('Get in touch')</a></li>
+            <li id="l-intro" class="active"><a href="#intro">@lang('Intro')</a></li>
+            <li id="l-services"><a href="#services">@lang('Services')</a></li>
+            <li id="l-projects"><a href="#projects">@lang('Projects')</a></li>
+            <li id="l-resume"><a href="#resume">@lang('Resume')</a></li>
+            <li id="l-contact"><a href="#contact">@lang('Get in touch')</a></li>
         </ul>
     </div>
 
@@ -32,19 +32,19 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li id="s-intro" class="nav-item active">
                         <a class="nav-link" href="#intro">@lang('Intro')</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="s-services" class="nav-item">
                         <a class="nav-link" href="#services">@lang('Services')</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="s-projects" class="nav-item">
                         <a class="nav-link" href="#projects">@lang('Projects')</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="s-resume" class="nav-item">
                         <a class="nav-link" href="#resume">@lang('Resume')</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="s-contact" class="nav-item">
                         <a class="nav-link" href="#contact">@lang('Get in touch')</a>
                     </li>
                 </ul>
@@ -82,5 +82,36 @@
                 $('#title-array').html(text).fadeIn();
             });
         }
+
+        $('#intro').waypoint(function(){
+            $("#nav ul").children().removeClass("active");
+            $("#sticky-nav ul").children().removeClass("active");
+            $("#l-intro").addClass("active");
+            $("#s-intro").addClass("active");
+        });
+        $('#services').waypoint(function(){
+            $("#nav ul").children().removeClass("active");
+            $("#sticky-nav ul").children().removeClass("active");
+            $("#l-services").addClass("active");
+            $("#s-services").addClass("active");
+        });
+        $('#projects').waypoint(function(){
+            $("#nav ul").children().removeClass("active");
+            $("#sticky-nav ul").children().removeClass("active");
+            $("#l-projects").addClass("active");
+            $("#s-projects").addClass("active");
+        });
+        $('#resume').waypoint(function(){
+            $("#nav ul").children().removeClass("active");
+            $("#sticky-nav ul").children().removeClass("active");
+            $("#l-resume").addClass("active");
+            $("#s-resume").addClass("active");
+        });
+        $('#contact').waypoint(function(){
+            $("#nav ul").children().removeClass("active");
+            $("#sticky-nav ul").children().removeClass("active");
+            $("#l-contact").addClass("active");
+            $("#s-contact").addClass("active");
+        });
     </script>
 @stop
