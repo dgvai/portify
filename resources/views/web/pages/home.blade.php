@@ -3,7 +3,7 @@
 @section('content')
     @include('web.includes.portfolio')
 
-    <div id="intro" class="container-fluid bg-gray d-flex align-items-center justify-content-center">
+    <div id="intro" class="container-fluid gray-bg d-flex align-items-center justify-content-center">
         <div class="white-box">
             <div class="user-data">
                 <div class="summary text-justify">{{$user->data->bio}}</div>
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div id="services" class="container-fluid bg-light d-flex flex-column align-items-center justify-content-center">
+    <div id="services" class="container-fluid light-bg d-flex flex-column align-items-center justify-content-center">
         <h1 class="primary font-medium text-uppercase">@lang('Services, I provide with passion')</h1>
         <div class="service-items">
             @foreach($user->services as $service)
@@ -31,13 +31,13 @@
         </div>
     </div>
 
-    <div id="projects" class="container-fluid bg-gray d-flex flex-column align-items-center justify-content-center">
+    <div id="projects" class="container-fluid gray-bg d-flex flex-column align-items-center justify-content-center">
         <h1 class="light font-medium text-uppercase mb-5">@lang('My recent projects')</h1>
         <div class="container">
             <div class="project-items owl-carousel owl-theme">
                 @foreach($user->projects as $project)
                 <div class="row justify-content-center">
-                    <div class="white-box item">
+                    <div class="white-box item col-md-10 col-10">
                         <div class="poster"><img class="img-responsive" src="{{$project->image_url}}"/></div>
                         <div class="data">
                             <h3 class="primary font-medium">{{$project->title}}</h3>
@@ -53,6 +53,12 @@
                 @endforeach
             </div>
         </div>
+    </div>
+
+    <div id="resume" class="container-fluid">
+        <h1 class="primary">@lang('Willing to hire me?')</h1>
+        <p>@lang('Why not see my resume!')</p>
+        <a href="#" class="main-button"><i class="fas fa-file-download mr-2"></i> Download Resume</a>
     </div>
 
 @endsection
@@ -83,6 +89,10 @@
                 singleItem:true,
                 responsive : {
                     0 : {
+                        items:1,
+                        dots: false
+                    },
+                    768: {
                         items:1
                     }
                 }

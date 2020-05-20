@@ -29,9 +29,9 @@
     }
 
     .font-lighter { font-weight: 200; } .font-light { font-weight: 300; } .font-medium { font-weight: 600; } .font-bold { font-weight: 900; }
-    .bg-gray {background-color: var(--color-gray);}
-    .bg-light {background-color: var(--color-light);}
-    .bg-main {background-color: var(--color-primary);}
+    .gray-bg {background-color: var(--color-gray);}
+    .light-bg {background-color: var(--color-light);}
+    .main-bg {background-color: var(--color-primary);}
     .primary {color: var(--color-primary);}
     .light {color: var(--color-light);}
 
@@ -64,6 +64,23 @@
         background: var(--color-primary);
         color: var(--color-light);
         text-decoration: none;
+    }
+
+    .main-button {
+        background: var(--color-primary);
+        font-size: 0.6rem;
+        border-radius: 5px;
+        text-transform: uppercase;
+        color: var(--color-light);
+        padding: 0.8rem;
+        text-decoration: none;
+        transition: all 0.5s;
+    }
+    
+    .main-button:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        text-decoration: none;
+        color: var(--color-light);
     }
     
     #portfolio {
@@ -282,6 +299,122 @@
         left: 0;
         right: 0;
         text-align: center;
+    }
+
+    @media only screen and (max-width: 768px) {
+        #projects h1 {
+            font-size: 1.25rem;
+            text-align: center;
+        }
+        #projects .project-items .item {
+            flex-direction: column;
+            text-align: center;
+            min-height: 20rem;
+        }
+        #projects .project-items .item h3 {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        #projects .project-items .item p {
+            display: none;
+        }
+        #projects .project-items .item .poster img {
+            width: 100%;
+        }
+        #projects .project-items .item .data .bot-btn {
+            position: relative;
+            bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+    }
+
+    @media only screen and (max-width:480px) {
+        #projects .project-items .item .data .bot-btn {
+            position: absolute;
+            bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+        } 
+    }
+
+    #resume {
+        min-height: 100vh;
+        padding: 3rem 0;
+        box-shadow: 0 0 20px rgba(0,0,0,0.25);
+        z-index: 2;
+        position: relative;
+        background: var(--color-light) url('{{asset('storage/app/resume/resume.png')}}') 15% center;
+        background-blend-mode:luminosity;
+        background-repeat: no-repeat;
+    }
+
+    #resume h1 {
+        position: absolute;
+        left: 45%;
+        top: 30%;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    #resume p {
+        position: absolute;
+        top: 40%;
+        left: 45%;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: var(--color-dark);
+    }
+    
+    #resume a {
+        position: absolute;
+        bottom: 25%;
+        left: 45%;
+    }
+
+    @media only screen and (max-width: 768px) {
+        #resume {
+            min-height: 100vw;
+            background: var(--color-light) url('{{asset('storage/app/resume/resume.png')}}') center center;
+            background-blend-mode:luminosity;
+            background-repeat: no-repeat;
+        }
+
+        #resume h1 {
+            position: absolute;
+            top: 20%;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        #resume p {
+            position: absolute;
+            top: 45%;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        
+        #resume a {
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 10%;
+            right: 10%;
+            text-align: center;
+        }
     }
 
 </style>
