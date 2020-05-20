@@ -9,10 +9,15 @@
 
     :root {
         --color-primary : #16464D;
+        --color-primary-a-5 : #16464DBF;
         --color-dark : #1a1a1a;
         --color-gray: #f2f2f2;
         --color-light: #fefefe;
         --font-family : 'Montserrat', sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     body {
@@ -26,6 +31,7 @@
     .font-lighter { font-weight: 200; } .font-light { font-weight: 300; } .font-medium { font-weight: 600; } .font-bold { font-weight: 900; }
     .bg-gray {background-color: var(--color-gray);}
     .bg-light {background-color: var(--color-light);}
+    .bg-main {background-color: var(--color-primary);}
     .primary {color: var(--color-primary);}
 
     .white-box {
@@ -34,6 +40,11 @@
         padding: 30px;
         border-radius: 10px;
         width: 58rem;
+        transition: all 0.5s;
+    }
+
+    .white-box:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, .3);
     }
     
     #portfolio {
@@ -75,13 +86,30 @@
 
     #nav ul li {
         padding: 10px;
+        display: inline;
     }
+    #nav ul li a {
+        color: var(--color-light);
+        text-decoration: none;
+    }
+
     #nav ul li.active {
         border-bottom: var(--color-gray) 4px solid;
     }
 
     #nav .navbar {
         margin: auto;
+    }
+
+    #sticky-nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--color-primary-a-5);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
+        z-index: 500;
+        transition: all 0.5s;
     }
 
     @media only screen and (max-width: 768px) {
