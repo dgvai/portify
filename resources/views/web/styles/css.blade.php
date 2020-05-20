@@ -48,6 +48,18 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, .3);
     }
 
+    .white-box-auto {
+        background: var(--color-light);
+        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        padding: 30px;
+        border-radius: 10px;
+        transition: all 0.5s;
+    }
+
+    .white-box-auto:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+    }
+
     .outline-button {
         background: transparent;
         border: 2px var(--color-primary) solid;
@@ -82,6 +94,23 @@
         text-decoration: none;
         color: var(--color-light);
     }
+
+    .dg-input i, .dg-input input, .dg-input textarea {
+        font-size: 20px;
+        color: var(--color-primary);
+    }
+
+    .dg-input input:focus,.dg-input textarea:focus {
+        border-color: var(--color-primary); 
+    }
+    .dg-input input:focus:hover,.dg-input textarea:focus:hover {
+        border-color: var(--color-primary); 
+    }
+
+    .dg-input .input-group-text.top {
+        align-items: start;
+        margin-top: 4px; 
+    } 
     
     #portfolio {
         background: rgba(0, 0, 0, .65) url('{{$user->cover_photo}}') center center;
@@ -415,6 +444,16 @@
             right: 10%;
             text-align: center;
         }
+    }
+
+    #contact {
+        min-height: 100vh;
+    }
+
+    #contact .white-box-auto h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
     }
 
 </style>
