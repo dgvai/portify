@@ -15,10 +15,19 @@
         <title>@yield('title')</title>
 
         @include('web.styles.css')
+        @include('web.styles.preloader')
         
         @yield('style')
     </head>
     <body>
+        <div id="preloader">
+            <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+            </div>
+        </div>
         @yield('content')
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
@@ -30,6 +39,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shards-ui/3.0.0/js/shards.min.js"></script>
     @include('sweetalert::alert')
     @yield('js')
+    <script>
+        $(window).on('load',function(){ $('#preloader').slideUp(); });
+    </script>
     @yield('scripts')
 </html>
 

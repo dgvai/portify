@@ -64,7 +64,7 @@
     <div id="contact" class="container-fluid gray-bg d-flex align-items-center">
         <div class="row" style="width: 100%">
             <div class="col-md-6">
-                <div class="white-box-auto mx-5">
+                <div class="white-box-auto">
                     <h1 class="primary text-center">@lang('Say HELLO to me!')</h1>
                     <form class="" action="" method="POST">
                         <div class="input-group input-group-seamless dg-input mb-2">
@@ -97,7 +97,30 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-6 text-center part-2">
+                <h1 class="primary mt-3">@lang('Get me on socials')</h1>
+                <div class="row social-row">
+                    <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
+                        <div class="social"><a href="#"><i class="fab fa-facebook-messenger"></i></a></div>
+                    </div>
+                    <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
+                        <div class="social"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
+                    </div>
+                    <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
+                        <div class="social"><a href="#"><i class="fab fa-twitter"></i></a></div>
+                    </div>
+                    <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
+                        <div class="social"><a href="#"><i class="fab fa-github"></i></a></div>
+                    </div>
+                    <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
+                        <div class="social"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+                    </div>
+                    <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
+                        <div class="social"><a href="#"><i class="fab fa-instagram"></i></a></div>
+                    </div>
+                </div>
+                <p class="copyright">Copyright &copy; {{date('Y')}} &bull; Website.com</p>
+            </div>
         </div>
     </div>
 
@@ -109,7 +132,6 @@
         $(()=>{
             let proj = $('.project-items');
             proj.on('initialize.owl.carousel', function(e){
-                console.log('sdsds');
                 var current = e.item.index;
                 var src = $(e.target).find(".white-box.item").eq(current).find("img").attr('src');
                 $('#projects').css({'background':`rgba(0, 0, 0, .85) url('${src}') center center`, 'background-blend-mode': 'darken', 'background-size' : 'cover', 'transition' : 'all 0.5s'});

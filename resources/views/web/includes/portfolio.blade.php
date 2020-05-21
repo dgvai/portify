@@ -113,5 +113,9 @@
             $("#l-contact").addClass("active");
             $("#s-contact").addClass("active");
         });
+        $('.nav-item').click(function(){
+            $("#sticky-nav ul").children().removeClass("active");
+            $(this).addClass('active');
+        });
     </script>
 @stop

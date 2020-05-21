@@ -4,7 +4,7 @@
 
     $user = User::first();
 @endphp
-<style>
+<style> 
     @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600,900&display=swap');
 
     :root {
@@ -20,12 +20,26 @@
         scroll-behavior: smooth;
     }
 
+    *, h1, h2, h3 {
+        font-family: var(--font-family);
+    }
+
     body {
         margin: 0;
         padding: 0;
         font-family: var(--font-family);
         line-height: 1;
         color: var(--color-dark);
+    }
+
+    a {
+        color: var(--color-light);
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: var(--color-light);
+        text-decoration: none;
     }
 
     .font-lighter { font-weight: 200; } .font-light { font-weight: 300; } .font-medium { font-weight: 600; } .font-bold { font-weight: 900; }
@@ -54,6 +68,7 @@
         padding: 30px;
         border-radius: 10px;
         transition: all 0.5s;
+        margin: 0 4rem
     }
 
     .white-box-auto:hover {
@@ -178,6 +193,10 @@
         box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
         z-index: 500;
         transition: all 0.5s;
+    }
+
+    #sticky-nav .navbar-brand {
+        font-family: var(--font-family);
     }
 
     @media only screen and (max-width: 768px) {
@@ -454,6 +473,66 @@
         font-size: 2rem;
         font-weight: 600;
         text-transform: uppercase;
+    }
+
+    #contact .part-2 h1 {
+        text-transform: uppercase;
+        font-size: 2rem;
+    }
+
+    #contact .social-row {
+        width: 250px;
+        margin: auto;
+        padding: 10px;
+    }
+
+    #contact .social {
+        width: 4rem;
+        height: 4rem;
+        background: var(--color-primary);
+        border-radius: 50%;
+        color: var(--color-light);
+        font-size: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #contact .copyright {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        text-transform: uppercase;
+        color: var(--color-primary);
+    }
+
+    @media only screen and (max-width: 768px) {
+        #contact .white-box-auto {
+            margin: 0;
+        }
+        #contact .row {
+            margin: 0 auto;
+        }
+        #contact .white-box-auto h1 {
+            font-size: 1.5rem;
+        }
+        #contact .part-2 {
+            min-height: 50vw;
+        }
+        .dg-input i, .dg-input input, .dg-input textarea {
+            font-size: 10px;
+        }
+
+        .dg-input .input-group-text.top {
+            margin-top: 0px; 
+        } 
+    }
+
+    @media only screen and (max-width: 480px) {
+        #contact .part-2 {
+            min-height: 100vw;
+        }
     }
 
 </style>
