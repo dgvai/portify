@@ -37,24 +37,11 @@
         <div class="col-md-6 text-center part-2">
             <h1 class="primary mt-3">@lang('Get me on socials')</h1>
             <div class="row social-row">
+                @foreach($user->socials as $social)
                 <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
-                    <div class="social"><a href="#"><i class="fab fa-facebook-messenger"></i></a></div>
+                    <div class="social"><a href="{{$social->url}}"><i class="{{$social->icon}}"></i></a></div>
                 </div>
-                <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
-                    <div class="social"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
-                </div>
-                <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
-                    <div class="social"><a href="#"><i class="fab fa-twitter"></i></a></div>
-                </div>
-                <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
-                    <div class="social"><a href="#"><i class="fab fa-github"></i></a></div>
-                </div>
-                <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
-                    <div class="social"><a href="#"><i class="fab fa-linkedin"></i></a></div>
-                </div>
-                <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
-                    <div class="social"><a href="#"><i class="fab fa-instagram"></i></a></div>
-                </div>
+                @endforeach
             </div>
             <p class="copyright">Copyright &copy; {{date('Y')}} &bull; Website.com</p>
         </div>

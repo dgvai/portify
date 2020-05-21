@@ -17,6 +17,6 @@ class Configuration extends Model
     {
         $cfg = self::where('key',$key)->first();
         $cfg->value = $val;
-        return $cfg->save();
+        return $cfg->save() ? true : false;
     }
 }

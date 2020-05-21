@@ -13,6 +13,8 @@ Route::middleware('auth')->group(function(){
         Route::get('services','Portfolio\ServiceController@getServices')->name('get.services');
         Route::get('inbox','InboxController@getInbox')->name('get.inbox');
         Route::get('inboxes','InboxController@getInboxes')->name('get.inboxes');
+        Route::get('social','Settings\SiteController@getSocial')->name('get.social');
+        Route::get('socials','Settings\SiteController@getSocials')->name('get.socials');
     });
     
     Route::prefix('portfolio')->group(function(){
@@ -37,6 +39,20 @@ Route::middleware('auth')->group(function(){
 
     Route::prefix('inbox')->group(function(){
         Route::get('/','InboxController@index')->name('inbox');
+    });
+
+    Route::prefix('settings')->group(function(){
+        Route::get('/site','Settings\SiteController@index')->name('settings.site');
+        Route::get('/app','Settings\AppController@index')->name('settings.app');
+        Route::get('/user','Settings\UserController@index')->name('settings.user');
+
+        Route::post('save/color','Settings\SiteController@savePrimaryColor')->name('save.color');
+        Route::post('add/social','Settings\SiteController@addSocial')->name('add.social');
+        Route::post('edit/social','Settings\SiteController@editSocial')->name('edit.social');
+        Route::post('delete/social','Settings\SiteController@deleteSocial')->name('delete.social');
+
+        Route::post('set/bg','Settings\SiteController@setIntroBg')->name('set.bg');
+        Route::post('set/loader','Settings\SiteController@setLoader')->name('set.loader');
     });
 
     Route::prefix('server')->group(function(){

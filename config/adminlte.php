@@ -248,17 +248,17 @@ return [
                 [
                     'text' => 'Site Settings',
                     'icon' => 'fas fa-fw fa-hammer',
-                    'url' => '#'
+                    'route' => 'settings.site'
                 ],
                 [
                     'text' => 'App Settings',
                     'icon' => 'fas fa-fw fa-tools',
-                    'url' => '#'
+                    'route' => 'settings.app'
                 ],
                 [
                     'text' => 'User Settings',
                     'icon' => 'fas fa-fw fa-user-cog',
-                    'url' => '#'
+                    'route' => 'settings.user'
                 ],
             ]
         ]
@@ -356,6 +356,17 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        [
+            'name' => 'Lazy',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js',
                 ],
             ],
         ],

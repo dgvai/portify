@@ -56,6 +56,11 @@ class User extends Authenticatable
         return $this->hasMany(UserTitle::class);
     }
 
+    public function socials()
+    {
+        return $this->hasMany(UserSocials::class);
+    }
+
     /**
      * attributes
      */
@@ -93,6 +98,9 @@ class User extends Authenticatable
         }
         if($this->resume()->exists()) {
             $this->resume()->delete();
+        }
+        if($this->socials()->exists()) {
+            $this->socials()->delete();
         }
         return $this->delete();
     }
