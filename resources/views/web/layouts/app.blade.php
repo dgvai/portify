@@ -1,3 +1,10 @@
+@php 
+    use App\Models\System\Configuration;
+    use App\Models\Utils\Loader;
+
+    $loader = Loader::find(Configuration::get('selected_loader'));
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{config('app.locale')}}">
     <head>
@@ -21,12 +28,7 @@
     </head>
     <body>
         <div id="preloader">
-            <div class="sk-folding-cube">
-                <div class="sk-cube1 sk-cube"></div>
-                <div class="sk-cube2 sk-cube"></div>
-                <div class="sk-cube4 sk-cube"></div>
-                <div class="sk-cube3 sk-cube"></div>
-            </div>
+            {!!$loader->html!!}
         </div>
         @yield('content')
     </body>
