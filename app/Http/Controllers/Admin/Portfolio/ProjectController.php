@@ -44,6 +44,14 @@ class ProjectController extends Controller
             'description' => $request->description,
             'link' => $request->link,
         ]);
+
+        if($request->has('has_blog'))
+        {
+            $b->has_blog = true;
+            $b->blog = $request->blog;
+            $b->save();
+        }
+
         return $b ? back()->with('toast_success','Created!') : back()->with('toast_error','Error creating!');
     }
 
@@ -68,6 +76,12 @@ class ProjectController extends Controller
         $project->title = $request->title;
         $project->description = $request->description;
         $project->link = $request->link;
+        $project->has_blog = $request->has('has_blog');
+
+        if($request->has('has_blog'))
+        {
+            $project->blog = $request->blog;
+        }
 
         return $project->save() ? back()->with('toast_success','Updated!') : back()->with('toast_error','Error updating!');
     }

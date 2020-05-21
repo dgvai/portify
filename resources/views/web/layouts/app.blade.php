@@ -31,6 +31,7 @@
             {!!$loader->html!!}
         </div>
         @yield('content')
+        @include('web.includes.footer')
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js" type="text/javascript"></script>

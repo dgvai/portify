@@ -22,13 +22,21 @@
 
     <x-dg-modal id="project-plate" title="Project">
         <form id="project-form" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="hidden" id="dgid" name="id">
-            <x-dg-input id="title" name="title" :label="__('Project Title')" :placeholder="__('Enter your project name')" :required="true" />
-            <x-dg-input-file id="image" name="image" :label="__('Project Image').' (3:2)'" :placeholder="__('Choose image file to upload/change')" />
-            <x-dg-textarea id="description" name="description" :label="__('Project Description')" :placeholder="__('Enter your project description')" :required="true" rows="5"></x-dg-textarea>
-            <x-dg-input id="link" name="link" :label="__('Project Url')" placeholder="https://..." :required="true" />
-            <x-dg-submit label="Save" />
+            <div class="row">
+                <div id="divider" class="col-md-12">
+                        @csrf
+                        <input type="hidden" id="dgid" name="id">
+                        <x-dg-input id="title" name="title" :label="__('Project Title')" :placeholder="__('Enter your project name')" :required="true" />
+                        <x-dg-input-file id="image" name="image" :label="__('Project Image').' (3:2)'" :placeholder="__('Choose image file to upload/change')" />
+                        <x-dg-textarea id="description" name="description" :label="__('Project Description')" :placeholder="__('Enter your project description')" :required="true" rows="5"></x-dg-textarea>
+                        <x-dg-input id="link" name="link" :label="__('Project Url')" placeholder="https://... (Place # for empty link)" :required="true" />
+                        <x-dg-input-switch id="write-blog" name="has_blog" :label="__('Write Blog?')"/>
+                </div>
+                <div id="blogger" class="col-md-8">
+                    <x-dg-text-editor id="blog-text" name="blog" label="write Blog Post"/>
+                </div>
+            </div>
+            <x-dg-submit label="Save" inputclass="px-5" />
         </form>
     </x-dg-modal>
 @stop
@@ -37,6 +45,19 @@
 @include('sweetalert::alert')
     <script>
         $(()=>{
+            $('#blogger').hide();
+            $('#write-blog').change(function(){
+                if($(this).prop('checked')) {
+                    $('#project-plate .modal-dialog').addClass('modal-xl');
+                    $('#divider').removeClass('col-md-12').addClass('col-md-4');
+                    $('#blogger').show();
+                } else {
+                    $('#project-plate .modal-dialog').removeClass('modal-xl');
+                    $('#divider').addClass('col-md-12').removeClass('col-md-4');
+                    $('#blogger').hide();
+                }
+            });
+
             let project_table = $('#project_table').DataTable({
                 ajax: {
                     url: "{{route('get.projects')}}",
@@ -85,6 +106,9 @@
 
             $('#project-plate').on('hidden.bs.modal',function(e){
                 $('#project-form').trigger('reset');
+                $('#write-blog').prop('checked',false);
+                $('#write-blog').trigger('change');
+                $('#blog-text').summernote('code','');
             });
 
             $('#project_table tbody').on('click','.edit',function(){
@@ -94,6 +118,11 @@
                     $('#title').val(r.data.title);
                     $('#description').val(r.data.description);
                     $('#link').val(r.data.link);
+                    if(r.data.has_blog) {
+                        $('#write-blog').prop('checked',true);
+                        $('#blog-text').summernote('code',r.data.blog);
+                        $('#write-blog').trigger('change');
+                    }
                     $('#project-plate').modal('show');
                 });
             });
