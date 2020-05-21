@@ -17,6 +17,8 @@ class AddDefaultConfigs extends Migration
         Configuration::insert([
             ['key' => 'enable_resume',  'value' => 1],
             ['key' => 'primary_color',  'value' => '#16464D'],
+            ['key' => 'selected_bg',  'value' => 'bg-1.png'],
+            ['key' => 'font_family',  'value' => 'Montserrat'],
         ]);
     }
 

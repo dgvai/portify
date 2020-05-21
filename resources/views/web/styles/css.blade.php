@@ -3,17 +3,27 @@
     use App\Models\System\Configuration;
 
     $user = User::first();
+    $introBG = Configuration::get('selected_bg');
+    $font = Configuration::get('font_family');
+    $primary = Configuration::get('primary_color');
 @endphp
 <style> 
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600,900&display=swap');
+    /*
+        ---------------------------------------------------------------------
+        THEME NAME  :   PHAMID NEOLA
+        AUTHOR      :   JALAL UDDIN (www.github.com/dgvai) 
+        ---------------------------------------------------------------------
+        
+    */
+    @import url('https://fonts.googleapis.com/css?family={{$font}}:200,300,400,600,900&display=swap');
 
     :root {
-        --color-primary : #16464D;
-        --color-primary-a-5 : #16464DBF;
+        --color-primary : {{$primary}};
+        --color-primary-a-5 : {{$primary.'BF'}};
         --color-dark : #1a1a1a;
         --color-gray: #f2f2f2;
         --color-light: #fefefe;
-        --font-family : 'Montserrat', sans-serif;
+        --font-family : '{{$font}}', sans-serif;
     }
 
     html {
@@ -223,7 +233,7 @@
         width: 100%;
         height: 100%;
         z-index: -1;
-        background: var(--color-gray) url('{{asset('storage/app/patterns/bg-1.png')}}') center center;
+        background: var(--color-gray) url('{{asset('storage/app/patterns/'.$introBG)}}') center center;
         background-size: cover;
         background-blend-mode: luminosity;
         opacity: 0.5;
