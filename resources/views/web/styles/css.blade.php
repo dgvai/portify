@@ -213,9 +213,20 @@
 
     #intro {
         min-height: 100vh;
+        position: relative;
+        z-index: 1;
+    }
+
+    #intro::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
         background: var(--color-gray) url('{{asset('storage/app/patterns/bg-1.png')}}') center center;
         background-size: cover;
-        background-blend-mode: color-dodge;
+        background-blend-mode: luminosity;
+        opacity: 0.5;
     }
 
     #intro .user-data {
