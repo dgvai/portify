@@ -209,6 +209,21 @@
         font-family: var(--font-family);
     }
 
+    #fixed-nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--color-primary-a-5);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
+        z-index: 500;
+        transition: all 0.5s;
+    }
+
+    #fixed-nav .navbar-brand {
+        font-family: var(--font-family);
+    }
+
     @media only screen and (max-width: 768px) {
         #nav {
             display: none;
@@ -553,6 +568,59 @@
     @media only screen and (max-width: 480px) {
         #contact .part-2 {
             min-height: 100vw;
+        }
+    }
+
+    #blog {
+        min-height: 100vh;
+        padding: 0;
+    }
+
+    #blog .blog-head {
+        height: 50vh;
+        width: 100%;
+    }
+
+    #blog h1 {
+        font-size: 2.5rem;
+        margin: 1rem 0;
+        font-weight: 600;
+    }
+
+    #blog #post h1,h2,h3,h4,h5,h6 {
+        font-weight: 400;
+    }
+
+    #blog #post a {
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+
+    #blog #post a:hover {
+        color: var(--color-primary);
+    }
+
+    @media only screen and (max-width: 768px) {
+        #blog h1 {
+            font-size: 1.5rem;
+            line-height: 1.4;
+        }
+
+        #blog #post h1 {
+            font-size: 1.5rem;
+            line-height: 1.4;
+        }
+        #blog #post h2 {
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
+        #blog #post h3 {
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+        #blog #post h4,h5,h6 {
+            font-size: 1rem;
+            line-height: 1.4;
         }
     }
 

@@ -1,5 +1,5 @@
 @extends('web.layouts.app')
-@section('title','Sarah Dylen')
+@section('title',$user->full_name)
 @section('content')
     @include('web.includes.portfolio')
 
@@ -43,9 +43,15 @@
                             <h3 class="primary font-medium">{{$project->title}}</h3>
                             <p class="small">{{$project->description}}</p>
                             <div class="bot-btn">
-                                <a href="{{$project->link}}" class="outline-button" target="_blank">
-                                <i class="fas fa-external-link-square-alt mr-1"></i> @lang('view project')
+                                @if($project->has_blog)
+                                <a href="{{route('project.show',['project' => $project->id, 'slug' => slugify($project->title)])}}" class="outline-button">
+                                    <i class="fas fa-external-link-square-alt mr-1"></i> @lang('view blog')
                                 </a>
+                                @else 
+                                <a href="{{$project->link}}" class="outline-button" target="_blank">
+                                    <i class="fas fa-external-link-square-alt mr-1"></i> @lang('view project')
+                                </a>
+                                @endif
                             </div>
                         </div>
                     </div>
