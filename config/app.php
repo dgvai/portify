@@ -67,7 +67,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
+    'emailer' => env('RCV_MAIL', false),
 
     /*
     |--------------------------------------------------------------------------

@@ -60,6 +60,21 @@
         }
     }
 
+    function readEnv($key)
+    {
+        $env = file_get_contents(base_path().'/.env');
+        $env = preg_split('/(\r\n|\n|\r)/', $env);
+
+        foreach($env as $env_key => $env_value)
+        {
+            $entry = explode("=", $env_value, 2);
+            if ($entry[0] == $key) 
+            {
+                return trim($entry[1],'\"');
+            }
+        }
+    }
+
     function thumbnail($file, $path, $name, $width = 100, $height = null)
     {
         $image = Image::make($file)->fit($width, is_null($height) ? $width : $height, function ($c) {

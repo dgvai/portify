@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function(){
 
         Route::post('set/bg','Settings\SiteController@setIntroBg')->name('set.bg');
         Route::post('set/loader','Settings\SiteController@setLoader')->name('set.loader');
+
+        Route::post('change/config','Settings\AppController@setConfig')->name('set.config');
     });
 
     Route::prefix('server')->group(function(){
