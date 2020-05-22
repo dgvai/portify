@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Auth\User;
+use App\Models\System\Inbox;
 use App\Models\Utils\Visitor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -14,5 +16,24 @@ class HomeController extends Controller
         Visitor::track(request()->ip(),'home');
         $user = User::first();
         return view('web.pages.home',['user' => $user]);
+    }
+
+    public function contact(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'name' => 'required|string',
+            'message' => 'required',
+        ]);
+
+        if($validator->fails()) 
+        {
+            return response()->json($validator->messages(), 200);
+        }
+        else 
+        {
+            Inbox::create($request->except('_token'));
+            return response()->json(['success' => true]);
+        }
     }
 }

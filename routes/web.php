@@ -17,4 +17,6 @@ Route::get('/', 'Web\HomeController@home')->name('home');
 
 Route::get('projects/{project:id}/{slug}','Web\ProjectController@show')->name('project.show');
 
+Route::post('/contact','Web\HomeController@contact')->name('contact');
+
 Auth::routes();
