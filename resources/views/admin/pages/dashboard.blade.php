@@ -23,6 +23,11 @@
                 <canvas id="visitors"></canvas>
             </x-dg-card>
         </div>
+        <div class="col-md-6">
+            <x-dg-card :title="__('Daily Downloads')" bg="success" :full="true">
+                <canvas id="downloads"></canvas>
+            </x-dg-card>
+        </div>
     </div>
 @stop
 
@@ -60,6 +65,39 @@
                         display: true,
                         fontColor : "white",
                         text: 'Daily Visitors'
+                    }
+                }
+            });
+        });
+        $.get("{{route('get.downloads')}}", {}, function (data) {
+            let downloads = $('#downloads');
+            let chart = new Chart(downloads, {
+                type: 'line',
+                data: data,
+                options: {
+                    legend: {
+                        labels: {
+                            fontColor: "white",
+                        }
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                fontColor: "white",
+                                beginAtZero: true,
+                                stepSize: 1
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                fontColor: "white",
+                            }
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        fontColor : "white",
+                        text: 'Daily Downloads'
                     }
                 }
             });

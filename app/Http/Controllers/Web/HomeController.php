@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Auth\User;
 use App\Models\System\Inbox;
+use App\Models\Utils\Download;
 use App\Models\Utils\Visitor;
 use App\Notifications\NewContact;
 use Illuminate\Http\Request;
@@ -39,5 +40,11 @@ class HomeController extends Controller
             }
             return response()->json(['success' => true]);
         }
+    }
+
+    public function download()
+    {
+        Download::track(request()->ip());
+        return response()->download(public_path('storage/user/resume/'.User::first()->resume->file));
     }
 }

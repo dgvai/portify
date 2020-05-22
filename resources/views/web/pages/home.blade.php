@@ -60,13 +60,13 @@
             </div>
         </div>
     </div>
-
+    @if(App\Models\System\Configuration::get('enable_resume') == 1)
     <div id="resume" class="container-fluid">
         <h1 class="primary wow fadeInUp">@lang('Willing to hire me?')</h1>
         <p class=" wow fadeInUp">@lang('Why not see my resume!')</p>
-        <a href="#" class="main-button wow fadeInUp"><i class="fas fa-file-download mr-2"></i> Download Resume</a>
+        <a href="{{route('download')}}" class="main-button wow fadeInUp"><i class="fas fa-file-download mr-2"></i> Download Resume</a>
     </div>
-
+    @endif
 @endsection
 
 @section('scripts')

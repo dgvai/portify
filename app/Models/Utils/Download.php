@@ -21,10 +21,10 @@ class Download extends Model
 
     public function scopeToday($q)
     {
-        return $q->whereBetween(['created_at',[
+        return $q->whereBetween('created_at',[
             Carbon::now()->startOfDay(),
             Carbon::now()->endOfDay()
-        ]])->orderBy('id','desc');
+        ])->orderBy('id','desc');
     }
 
     public function scopeRange($q,$start,$end)

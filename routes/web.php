@@ -19,4 +19,6 @@ Route::get('projects/{project:id}/{slug}','Web\ProjectController@show')->name('p
 
 Route::post('/contact','Web\HomeController@contact')->name('contact');
 
+Route::get('/download-resume','Web\HomeController@download')->name('download');
+
 Auth::routes();

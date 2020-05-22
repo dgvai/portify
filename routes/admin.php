@@ -7,6 +7,7 @@ Route::middleware('auth')->group(function(){
 
     Route::prefix('get')->group(function(){
         Route::get('visitors','DashboardController@getVisitorLog')->name('get.visitor');
+        Route::get('downloads','DashboardController@getDownloadLog')->name('get.downloads');
         Route::get('project','Portfolio\ProjectController@getProject')->name('get.project');
         Route::get('projects','Portfolio\ProjectController@getProjects')->name('get.projects');
         Route::get('service','Portfolio\ServiceController@getService')->name('get.service');
