@@ -251,6 +251,11 @@ return [
                     'route' => 'settings.site'
                 ],
                 [
+                    'text' => 'Content Settings',
+                    'icon' => 'fas fa-fw fa-wrench',
+                    'route' => 'settings.content'
+                ],
+                [
                     'text' => 'App Settings',
                     'icon' => 'fas fa-fw fa-tools',
                     'route' => 'settings.app'

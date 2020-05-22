@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function(){
 
     Route::prefix('settings')->group(function(){
         Route::get('/site','Settings\SiteController@index')->name('settings.site');
+        Route::get('/content','Settings\ContentController@index')->name('settings.content');
         Route::get('/app','Settings\AppController@index')->name('settings.app');
         Route::get('/user','Settings\UserController@index')->name('settings.user');
 
@@ -58,5 +59,7 @@ Route::middleware('auth')->group(function(){
         Route::post('change/config','Settings\AppController@setConfig')->name('set.config');
 
         Route::post('change/user','Settings\UserController@setUser')->name('set.user');
+
+        Route::post('save/langs','Settings\ContentController@saveLang')->name('save.langs');
     });
 });
