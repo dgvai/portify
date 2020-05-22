@@ -14,7 +14,8 @@
     <div class="row">
         <div class="col-md-12">
             <x-dg-card bg="primary" title="Inbox">
-                <x-dg-date-range id="picker" callback="inbox_table.ajax.url('{{route('get.inboxes')}}/?start='+start.format('YYYY-MM-DD') + '&end=' + end.format('YYYY-MM-DD')).load();" />
+                <x-dg-date-range id="picker" inputclass="text-dark"
+                callback="inbox_table.ajax.url('{{route('get.inboxes')}}/?start='+start.format('YYYY-MM-DD') + '&end=' + end.format('YYYY-MM-DD')).load();" />
                 <x-dg-datatable id="inbox_table" :heads="['Date','Email','Name','Actions']" />
             </x-dg-card>
         </div>

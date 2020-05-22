@@ -19,7 +19,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <x-dg-card :title="__('Daily Visitors')" bg="dark" :full="true">
+            <x-dg-card :title="__('Daily Visitors')" bg="info" :full="true">
                 <canvas id="visitors"></canvas>
             </x-dg-card>
         </div>

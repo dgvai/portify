@@ -54,7 +54,6 @@ use App\Models\System\Configuration;
                         <x-dg-option value="Titillium+Web" :selected="Configuration::get('font_family') == 'Titillium+Web' ? true : false">Titillium Web</x-dg-option>
                         <x-dg-option value="Rajdhani" :selected="Configuration::get('font_family') == 'Rajdhani' ? true : false">Rajdhani</x-dg-option>
                     </x-dg-select2>
-                    <p id="font-preview" style="font-family: '{{Configuration::get('font_family')}}', sans-serif;">PREVIEW: The quick brown fox jumps over the lazy dog</p>
                     <x-dg-submit label="Change" />
                 </form>
             </x-dg-card>
@@ -208,11 +207,6 @@ use App\Models\System\Configuration;
                         swalToast('error','Something went worng');
                     }
                 });
-            });
-
-            $('#font-fam').change(function(){
-                let fam = $(this).val().replace('+',' ');
-                $('#font-preview').css('font-family',`'${fam}', sans-serif`);
             });
         });
     </script>
