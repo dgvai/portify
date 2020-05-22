@@ -45,6 +45,7 @@
     @include('sweetalert::alert')
     @yield('js')
     <script>
+        new WOW().init();
         $(window).on('load',function(){ $('#preloader').slideUp(); });
     </script>
     @yield('scripts')

@@ -4,7 +4,7 @@
     @include('web.includes.portfolio')
 
     <div id="intro" class="container-fluid gray-bg d-flex align-items-center justify-content-center">
-        <div class="white-box">
+        <div class="white-box wow fadeInUp">
             <div class="user-data">
                 <div class="summary text-justify">{{$user->data->bio}}</div>
                 <div class="data text-uppercase">
@@ -22,7 +22,7 @@
         <h1 class="primary font-medium text-uppercase">@lang('Services, I provide with passion')</h1>
         <div class="service-items">
             @foreach($user->services as $service)
-            <div class="item d-flex flex-column text-center">
+            <div class="item d-flex flex-column text-center wow fadeInUp">
                 <img src="{{$service->svg_icon}}" class="icon"/>
                 <div class="text-uppercase my-3 font-medium">{{$service->title}}</div>
                 <div class="text-center text">{{$service->description}}</div>
@@ -62,9 +62,9 @@
     </div>
 
     <div id="resume" class="container-fluid">
-        <h1 class="primary">@lang('Willing to hire me?')</h1>
-        <p>@lang('Why not see my resume!')</p>
-        <a href="#" class="main-button"><i class="fas fa-file-download mr-2"></i> Download Resume</a>
+        <h1 class="primary wow fadeInUp">@lang('Willing to hire me?')</h1>
+        <p class=" wow fadeInUp">@lang('Why not see my resume!')</p>
+        <a href="#" class="main-button wow fadeInUp"><i class="fas fa-file-download mr-2"></i> Download Resume</a>
     </div>
 
 @endsection
@@ -92,6 +92,7 @@
                 margin: 0,
                 loop: true,
                 singleItem:true,
+                autoplay : true,
                 responsive : {
                     0 : {
                         items:1,

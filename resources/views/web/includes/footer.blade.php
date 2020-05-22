@@ -37,8 +37,8 @@
         <div class="col-md-6 text-center part-2">
             <h1 class="primary mt-3">@lang('Get me on socials')</h1>
             <div class="row social-row">
-                @foreach($user->socials as $social)
-                <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center">
+                @foreach($user->socials as $i=> $social)
+                <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center wow zoomIn" data-wow-delay="{{$i*0.25}}s">
                     <div class="social"><a href="{{$social->url}}"><i class="{{$social->icon}}"></i></a></div>
                 </div>
                 @endforeach

@@ -26,6 +26,26 @@
         --font-family : '{{str_replace('+',' ',$font)}}', sans-serif;
     }
 
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-primary) var(--color-dark);
+    }
+
+    /* Works on Chrome/Edge/Safari */
+    *::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: var(--color-dark);
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary);
+        border-radius: 20px;
+        border: 3px solid var(--color-dark);
+    }
+
     html {
         scroll-behavior: smooth;
     }
@@ -52,7 +72,7 @@
         text-decoration: none;
     }
 
-    .font-lighter { font-weight: 200; } .font-light { font-weight: 300; } .font-medium { font-weight: 600; } .font-bold { font-weight: 900; }
+    .font-lighter { font-weight: 200; } .font-light { font-weight: 300; } .font-regular { font-weight: 400; } .font-medium { font-weight: 600; } .font-bold { font-weight: 900; }
     .gray-bg {background-color: var(--color-gray);}
     .light-bg {background-color: var(--color-light);}
     .main-bg {background-color: var(--color-primary);}
@@ -157,6 +177,7 @@
     #portfolio .name {
         font-size: 5rem;
         letter-spacing: 2px;
+        text-shadow: 0 0 15px #ffffff72;
     }
     #portfolio .title {
         font-size: 2rem;
@@ -177,9 +198,10 @@
     #nav ul li {
         padding: 10px;
         display: inline;
+        transition: all 0.5s;
     }
     #nav ul li:hover {
-        border-bottom: var(--color-gray) 4px solid;
+        text-shadow: 0px 0px 6px #FEFEFE;
     }
     #nav ul li a {
         color: var(--color-light);
@@ -187,11 +209,12 @@
     }
 
     #nav ul li.active {
-        border-bottom: var(--color-gray) 4px solid;
+        text-shadow: 0px 0px 6px #FEFEFE;
     }
 
     #nav .navbar {
         margin: auto;
+        padding: 0.25rem 1.5rem;
     }
 
     #sticky-nav {
@@ -218,6 +241,7 @@
         box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
         z-index: 500;
         transition: all 0.5s;
+        text-transform: uppercase;
     }
 
     #fixed-nav .navbar-brand {
@@ -398,6 +422,7 @@
         #projects .project-items .item h3 {
             font-size: 1rem;
             margin: 10px 0;
+            line-height: 1.25rem;
         }
         #projects .project-items .item p {
             display: none;
@@ -544,6 +569,9 @@
     }
 
     @media only screen and (max-width: 768px) {
+        #contact {
+            padding: 1rem 0;
+        }
         #contact .white-box-auto {
             margin: 0;
         }
