@@ -1,6 +1,3 @@
-@php 
-use App\Models\System\Configuration;
-@endphp
 @extends('adminlte::page')
 @section('title', __('App Settings'))
 
@@ -64,8 +61,5 @@ use App\Models\System\Configuration;
 @section('js')
 @include('sweetalert::alert')
     <script>
-        $(()=>{
-            
-        });
     </script>
 @stop

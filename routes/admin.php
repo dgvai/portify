@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function(){
         Route::post('set/loader','Settings\SiteController@setLoader')->name('set.loader');
 
         Route::post('change/config','Settings\AppController@setConfig')->name('set.config');
+
+        Route::post('change/user','Settings\UserController@setUser')->name('set.user');
     });
 
     Route::prefix('server')->group(function(){
