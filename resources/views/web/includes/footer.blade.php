@@ -38,12 +38,14 @@
             <h1 class="primary mt-3">@lang('Get me on socials')</h1>
             <div class="row social-row">
                 @foreach($user->socials as $i=> $social)
-                <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center wow zoomIn" data-wow-delay="{{$i*0.25}}s">
+                <div class="col-4 py-2 mx-0 px-0 d-flex justify-content-center wow zoomIn" 
+                data-wow-delay="{{$i*0.25}}s"
+                data-toggle="tooltip" title="{{$social->name}}">
                     <div class="social"><a href="{{$social->url}}"><i class="{{$social->icon}}"></i></a></div>
                 </div>
                 @endforeach
             </div>
-            <p class="copyright">Copyright &copy; {{date('Y')}} &bull; Website.com</p>
+            <p class="copyright">Copyright &copy; {{date('Y')}} &bull; @lang('Footer Text')</p>
         </div>
     </div>
 </div>
@@ -52,6 +54,7 @@
     @parent 
     <script>
         $(()=>{
+            $('[data-toggle="tooltip"]').tooltip();
             $('#contact-form').submit(function(e){
                 e.preventDefault();
                 let btn = $('#contact-form button');

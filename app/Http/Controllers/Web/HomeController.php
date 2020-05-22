@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Auth\User;
 use App\Models\System\Inbox;
 use App\Models\Utils\Visitor;
+use App\Notifications\NewContact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -33,6 +34,9 @@ class HomeController extends Controller
         else 
         {
             Inbox::create($request->except('_token'));
+            if(config('app.emailer')) {
+                User::first()->notify(new NewContact);
+            }
             return response()->json(['success' => true]);
         }
     }
