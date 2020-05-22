@@ -4,16 +4,16 @@
 @section('content')
     <div class="row">
         <div class="col-md-3">
-            <x-dg-small-box :title="__('New Visitors')" text="0" bg="info" icon="fas fa-user-plus" />
+            <x-dg-small-box :title="__('Todays Visitors')" :text="$data->visitor" bg="info" icon="fas fa-user-plus" />
         </div>
         <div class="col-md-3">
-            <x-dg-small-box :title="__('New Downloads')" text="0" bg="success" icon="fas fa-file-download" />
+            <x-dg-small-box :title="__('Todays Downloads')" :text="$data->download" bg="success" icon="fas fa-file-download" />
         </div>
         <div class="col-md-3">
-            <x-dg-small-box :title="__('New Inboxes')" text="0" bg="warning" icon="fas fa-inbox" />
+            <x-dg-small-box :title="__('Unread Inboxes')" :text="$data->inbox" bg="warning" icon="fas fa-inbox" :url="route('inbox')"/>
         </div>
         <div class="col-md-3">
-            <x-dg-small-box :title="__('Server Health')" text="0" bg="secondary" icon="fas fa-heartbeat" :url="route('server.monitor')" />
+            <x-dg-small-box :title="__('My Projects')" :text="$data->projects" bg="secondary" icon="fas fa-paper-plane" :url="route('portfolio.projects')" />
         </div>
     </div>
 

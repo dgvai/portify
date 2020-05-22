@@ -59,8 +59,4 @@ Route::middleware('auth')->group(function(){
 
         Route::post('change/user','Settings\UserController@setUser')->name('set.user');
     });
-
-    Route::prefix('server')->group(function(){
-        Route::get('monitor','ServerController@monitor')->name('server.monitor');
-    });
 });
