@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/app','Settings\AppController@index')->name('settings.app');
         Route::get('/user','Settings\UserController@index')->name('settings.user');
 
-        Route::post('save/color','Settings\SiteController@savePrimaryColor')->name('save.color');
+        Route::post('save/setting','Settings\SiteController@savePrimarySetting')->name('save.setting');
         Route::post('add/social','Settings\SiteController@addSocial')->name('add.social');
         Route::post('edit/social','Settings\SiteController@editSocial')->name('edit.social');
         Route::post('delete/social','Settings\SiteController@deleteSocial')->name('delete.social');

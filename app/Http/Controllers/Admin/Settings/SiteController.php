@@ -29,11 +29,21 @@ class SiteController extends Controller
         return JsonResource::collection(UserSocials::all());
     }
 
-    public function savePrimaryColor(Request $request)
+    public function savePrimarySetting(Request $request)
     {
+        $request->validate([
+            'favicon' => 'mimes:ico|nullable'
+        ]);
+
         if($request->has('primary'))
         {
             Configuration::set('primary_color',$request->primary);
+
+            if($request->hasFile('favicon'))
+            {
+                $request->favicon->move(public_path('favicons'),'favicon.ico');
+            }
+
             return back()->with('toast_success','Changed!');
         }
         else 

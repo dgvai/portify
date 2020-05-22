@@ -74,10 +74,19 @@ use App\Models\System\Configuration;
             </x-dg-card>
         </div>
         <div class="col-md-6">
-            <x-dg-card bg="primary" :title="__('Change Primary Color')">
-                <form action="{{route('save.color')}}" method="POST">
+            <x-dg-card bg="primary" :title="__('Change Primary Settings')">
+                <form action="{{route('save.setting')}}" method="POST" enctype="multipart/form-data">
                     @csrf 
                     <x-dg-input-color name="primary" id="primary-color" :value="Configuration::get('primary_color')" :label="__('Choose Color')" required="true"/>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mr-2">
+                            <span class="input-group-text" id="basic-addon1">
+                                <img src="{{asset('favicons/favicon.ico?'.time())}}" class="img-responsive" width="32px" />
+                            </span>
+                        </div>
+                        <x-dg-input-file id="favicon" name="favicon" :label="__('Change Favicon')" placeholder="Upload ico - 64x64" />
+                    </div>
+                    
                     <x-dg-submit label="Change" />
                 </form>
             </x-dg-card>
