@@ -15,7 +15,7 @@
         ---------------------------------------------------------------------
         
     */
-    @import url('https://fonts.googleapis.com/css?family={{$font}}:200,300,400,600,900&display=swap');
+    @import url('https://fonts.googleapis.com/css?family={{$font}}:200,300,400,600&display=swap');
 
     :root {
         --color-primary : {{$primary}};
@@ -23,7 +23,7 @@
         --color-dark : #1a1a1a;
         --color-gray: #f2f2f2;
         --color-light: #fefefe;
-        --font-family : '{{$font}}', sans-serif;
+        --font-family : '{{str_replace('+',' ',$font)}}', sans-serif;
     }
 
     html {

@@ -44,6 +44,11 @@ class SiteController extends Controller
                 $request->favicon->move(public_path('favicons'),'favicon.ico');
             }
 
+            if($request->has('font_family'))
+            {
+                Configuration::set('font_family',$request->font_family);
+            }
+
             return back()->with('toast_success','Changed!');
         }
         else 

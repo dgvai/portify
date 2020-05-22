@@ -6,52 +6,12 @@ use App\Models\System\Configuration;
 
 @section('css')
     <style>
-        .bg-pats, .load-gif {
-            mix-blend-mode: luminosity;
-            padding: 0.5rem;
-            height: 150px;
-            object-fit: cover;
-            transition: all 0.5s;
-        }
-        .bg-pats.active, .load-gif.active {
-            border: var(--blue) 5px solid;
-        }
-        .bg-pats:hover, .load-gif:hover {
-            padding: 1rem;
-        }
+        .bg-pats, .load-gif { mix-blend-mode: luminosity; padding: 0.5rem; height: 150px; object-fit: cover; transition: all 0.5s; } .bg-pats.active, .load-gif.active { border: var(--blue) 5px solid; } .bg-pats:hover, .load-gif:hover { padding: 1rem; }
     </style>
 @stop
 
 @section('content')
     <div class="row">
-        <div class="col-md-12">
-            <x-dg-card bg="primary" :title="__('Select Intro Background')">
-                <div class="row" id="bgs">
-                    @foreach($bgs as $bg)
-                    <div class="col-md-3 text-center">
-                        <img src="{{asset('storage/app/patterns/'.$bg)}}" 
-                        class="img-responsive bg-pats lazy {{Configuration::get('selected_bg') == $bg ? 'active' : ''}}" 
-                        width="100%"
-                        data-name="{{$bg}}" />
-                    </div>
-                    @endforeach
-                </div>
-            </x-dg-card>
-        </div>
-        <div class="col-md-12">
-            <x-dg-card bg="primary" :title="__('Select Preloader')">
-                <div class="row" id="loads">
-                    @foreach($loaders as $loader)
-                    <div class="col-md-2">
-                        <img src="{{asset('storage/app/loaders/'.$loader)}}" 
-                        class="img-responsive load-gif lazy {{Configuration::get('selected_loader').'.gif' == $loader ? 'active' : ''}}" 
-                        width="100%"
-                        data-name="{{$loader}}" />
-                    </div>
-                    @endforeach
-                </div>
-            </x-dg-card>
-        </div>
         <div class="col-md-6">
             <x-dg-card bg="primary" :title="__('Add Social Links')">
                 <form action="{{route('add.social')}}" method="POST">
@@ -86,9 +46,45 @@ use App\Models\System\Configuration;
                         </div>
                         <x-dg-input-file id="favicon" name="favicon" :label="__('Change Favicon')" placeholder="Upload ico - 64x64" />
                     </div>
-                    
+                
+                    <x-dg-select2 id="font-fam" name="font_family" :label="__('Select Font Family')">
+                        <x-dg-option value="Montserrat" :selected="Configuration::get('font_family') == 'Montserrat' ? true : false">Montserrat</x-dg-option>
+                        <x-dg-option value="Montserrat+Alternates" :selected="Configuration::get('font_family') == 'Montserrat+Alternates' ? true : false">Montserrat Alternates</x-dg-option>
+                        <x-dg-option value="Ubuntu" :selected="Configuration::get('font_family') == 'Ubuntu' ? true : false">Ubuntu</x-dg-option>
+                        <x-dg-option value="Titillium+Web" :selected="Configuration::get('font_family') == 'Titillium+Web' ? true : false">Titillium Web</x-dg-option>
+                        <x-dg-option value="Rajdhani" :selected="Configuration::get('font_family') == 'Rajdhani' ? true : false">Rajdhani</x-dg-option>
+                    </x-dg-select2>
+                    <p id="font-preview" style="font-family: '{{Configuration::get('font_family')}}', sans-serif;">PREVIEW: The quick brown fox jumps over the lazy dog</p>
                     <x-dg-submit label="Change" />
                 </form>
+            </x-dg-card>
+        </div>
+        <div class="col-md-12">
+            <x-dg-card bg="primary" :title="__('Select Intro Background')">
+                <div class="row" id="bgs">
+                    @foreach($bgs as $bg)
+                    <div class="col-md-3 text-center">
+                        <img src="{{asset('storage/app/patterns/'.$bg)}}" 
+                        class="img-responsive bg-pats lazy {{Configuration::get('selected_bg') == $bg ? 'active' : ''}}" 
+                        width="100%"
+                        data-name="{{$bg}}" />
+                    </div>
+                    @endforeach
+                </div>
+            </x-dg-card>
+        </div>
+        <div class="col-md-12">
+            <x-dg-card bg="primary" :title="__('Select Preloader')">
+                <div class="row" id="loads">
+                    @foreach($loaders as $loader)
+                    <div class="col-md-2">
+                        <img src="{{asset('storage/app/loaders/'.$loader)}}" 
+                        class="img-responsive load-gif lazy {{Configuration::get('selected_loader').'.gif' == $loader ? 'active' : ''}}" 
+                        width="100%"
+                        data-name="{{$loader}}" />
+                    </div>
+                    @endforeach
+                </div>
             </x-dg-card>
         </div>
     </div>
@@ -212,6 +208,11 @@ use App\Models\System\Configuration;
                         swalToast('error','Something went worng');
                     }
                 });
+            });
+
+            $('#font-fam').change(function(){
+                let fam = $(this).val().replace('+',' ');
+                $('#font-preview').css('font-family',`'${fam}', sans-serif`);
             });
         });
     </script>
