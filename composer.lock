@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41f78100d966eebdba65904fe21ddb44",
+    "content-hash": "fb39ad4817fe1636c4cf02af9679b9cf",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -288,6 +288,46 @@
             ],
             "description": "Laravel Blade Components For AdminLTE Bootstrap Admin Template",
             "time": "2020-05-21T12:05:30+00:00"
+        },
+        {
+            "name": "dgvai/laravel-demo-mode",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dgvai/laravel-demo-mode.git",
+                "reference": "103a7b8605f58498a184f4fccfe0057b2ebda0d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dgvai/laravel-demo-mode/zipball/103a7b8605f58498a184f4fccfe0057b2ebda0d6",
+                "reference": "103a7b8605f58498a184f4fccfe0057b2ebda0d6",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DGvai\\DemoMode\\DemoModeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DGvai\\DemoMode\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jalal Uddin",
+                    "email": "dgvai@users.noreply.github.com"
+                }
+            ],
+            "description": "Your Project Protector in Online Markets",
+            "time": "2020-05-23T08:13:51+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
