@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df7a939f35850c49de1a78ec944aeb44",
+    "content-hash": "41f78100d966eebdba65904fe21ddb44",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -208,6 +208,46 @@
                 "math"
             ],
             "time": "2020-04-15T15:59:35+00:00"
+        },
+        {
+            "name": "dgvai/larataller",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dgvai/larataller.git",
+                "reference": "76a451fbfd9917a9cb2a9ab6c671ce5bb8d5d6ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dgvai/larataller/zipball/76a451fbfd9917a9cb2a9ab6c671ce5bb8d5d6ed",
+                "reference": "76a451fbfd9917a9cb2a9ab6c671ce5bb8d5d6ed",
+                "shasum": ""
+            },
+            "type": "composer-dependency",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DGvai\\Larataller\\LaratallerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DGvai\\Larataller\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jalal Uddin",
+                    "email": "dgvai.hridoy@gmail.com"
+                }
+            ],
+            "description": "A stand-alone laravel application installer package.",
+            "time": "2020-05-02T12:15:02+00:00"
         },
         {
             "name": "dgvai/laravel-adminlte-components",

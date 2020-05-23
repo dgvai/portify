@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "artesaos/seotools": "^0.17.2",
+        "dgvai/larataller": "^1.0",
         "dgvai/laravel-adminlte-components": "^1.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
