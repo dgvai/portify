@@ -10,12 +10,16 @@ use App\Models\Utils\Visitor;
 use App\Notifications\NewContact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\JsonLd;
 
 class HomeController extends Controller
 {
     public function home()
     {
         Visitor::track(request()->ip(),'home');
+        $this->generateSeo();
         $user = User::first();
         return view('web.pages.home',['user' => $user]);
     }
@@ -46,5 +50,27 @@ class HomeController extends Controller
     {
         Download::track(request()->ip());
         return response()->download(public_path('storage/user/resume/'.User::first()->resume->file));
+    }
+
+    private function generateSeo()
+    {
+        $user = User::first();
+        SEOMeta::setTitle($user->full_name.' - Portfolio');
+        SEOMeta::setDescription($user->data->bio);
+        SEOMeta::setCanonical(route('home'));
+        SEOMeta::addKeyword(explode(' ',$user->data->bio));
+
+        OpenGraph::setDescription($user->data->bio);
+        OpenGraph::setTitle($user->full_name.' - Portfolio');
+        OpenGraph::setUrl(route('home'));
+        OpenGraph::addImage($user->cover_photo);
+
+        OpenGraph::addProperty('type', 'profile'); 
+        OpenGraph::addProperty('profile:first_name', $user->first_name); 
+        OpenGraph::addProperty('profile:last_name', $user->last_name); 
+
+        JsonLd::setTitle($user->full_name.' - Portfolio');
+        JsonLd::setDescription($user->data->bio);
+        JsonLd::addImage($user->cover_photo);
     }
 }

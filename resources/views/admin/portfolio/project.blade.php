@@ -33,7 +33,7 @@
                         <x-dg-input-switch id="write-blog" name="has_blog" :label="__('Write Blog?')"/>
                 </div>
                 <div id="blogger" class="col-md-8">
-                    <x-dg-text-editor id="blog-text" name="blog" label="write Blog Post"/>
+                    <x-dg-text-editor id="blog-text" name="blog" label="Write Blog Post"/>
                 </div>
             </div>
             <x-dg-submit label="Save" inputclass="px-5" />
