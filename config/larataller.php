@@ -42,7 +42,6 @@
                 'xmlwriter',
                 'curl',
                 'gd',
-                'memcached',
                 'fileinfo',
                 'ftp',
             ],
