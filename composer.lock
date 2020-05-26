@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb39ad4817fe1636c4cf02af9679b9cf",
+    "content-hash": "93df66ef12d767685e5c06afa4dd7a2c",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -251,16 +251,16 @@
         },
         {
             "name": "dgvai/laravel-adminlte-components",
-            "version": "1.1.2",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dgvai/laravel-adminlte-components.git",
-                "reference": "64d97cb1d4e2dea304799a8fa747f9281ff8bef8"
+                "reference": "f62d2964a285c955d682c7c6b763265dd1ff8d75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dgvai/laravel-adminlte-components/zipball/64d97cb1d4e2dea304799a8fa747f9281ff8bef8",
-                "reference": "64d97cb1d4e2dea304799a8fa747f9281ff8bef8",
+                "url": "https://api.github.com/repos/dgvai/laravel-adminlte-components/zipball/f62d2964a285c955d682c7c6b763265dd1ff8d75",
+                "reference": "f62d2964a285c955d682c7c6b763265dd1ff8d75",
                 "shasum": ""
             },
             "type": "laravel-package",
@@ -287,7 +287,7 @@
                 }
             ],
             "description": "Laravel Blade Components For AdminLTE Bootstrap Admin Template",
-            "time": "2020-05-21T12:05:30+00:00"
+            "time": "2020-05-26T14:53:52+00:00"
         },
         {
             "name": "dgvai/laravel-demo-mode",

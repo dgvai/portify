@@ -224,6 +224,11 @@ return [
                     'route' => 'portfolio.services'
                 ],
                 [
+                    'text' => 'Skills',
+                    'icon' => 'fas fa-fw fa-percentage',
+                    'route' => 'portfolio.skills'
+                ],
+                [
                     'text' => 'Projects',
                     'icon' => 'fas fa-fw fa-paper-plane',
                     'route' => 'portfolio.projects'
@@ -463,6 +468,16 @@ return [
                     'type' => 'js',
                     'asset' => true,
                     'location' => '/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => '/plugins/bootstrap-slider/css/bootstrap-slider.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => '/plugins/bootstrap-slider/js/bootstrap-slider.min.js',
                 ],
             ],
         ],

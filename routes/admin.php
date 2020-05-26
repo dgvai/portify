@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function(){
         Route::post('update/services','Portfolio\ServiceController@update')->name('portfolio.update.services')->middleware('demo');
         Route::post('delete/services','Portfolio\ServiceController@delete')->name('portfolio.delete.services')->middleware('demo');
 
+        Route::get('skills','Portfolio\SkillController@index')->name('portfolio.skills');
+        
         Route::get('projects','Portfolio\ProjectController@index')->name('portfolio.projects');
         Route::post('add/project','Portfolio\ProjectController@add')->name('portfolio.add.project')->middleware('demo');
         Route::post('update/project','Portfolio\ProjectController@update')->name('portfolio.update.project')->middleware('demo');
@@ -36,6 +38,8 @@ Route::middleware('auth')->group(function(){
         Route::get('resume','Portfolio\ResumeController@index')->name('portfolio.resume');
         Route::post('resume/toggle','Portfolio\ResumeController@toggle')->name('portfolio.resume.toggle')->middleware('demo');
         Route::post('resume/upload','Portfolio\ResumeController@upload')->name('portfolio.resume.upload')->middleware('demo');
+
+
     });
 
     Route::prefix('inbox')->group(function(){

@@ -4,7 +4,7 @@
 
     function slugify(string $string, string $delimeters = '-') 
     {
-        return strtolower(preg_replace('/\s+|\/+/u', $delimeters, trim($string)));
+        return strtolower(preg_replace('~[^\pL\d]+~u', $delimeters, trim($string)));
     }
 
     function deslugify(string $string, string $delimeters = '-')

@@ -52,7 +52,7 @@
                             ticks: {
                                 fontColor: "white",
                                 beginAtZero: true,
-                                stepSize: 1
+                                stepSize: 10
                             }
                         }],
                         xAxes: [{
@@ -85,7 +85,7 @@
                             ticks: {
                                 fontColor: "white",
                                 beginAtZero: true,
-                                stepSize: 1
+                                stepSize: 10
                             }
                         }],
                         xAxes: [{
