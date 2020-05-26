@@ -12,6 +12,8 @@ Route::middleware('auth')->group(function(){
         Route::get('projects','Portfolio\ProjectController@getProjects')->name('get.projects');
         Route::get('service','Portfolio\ServiceController@getService')->name('get.service');
         Route::get('services','Portfolio\ServiceController@getServices')->name('get.services');
+        Route::get('skill','Portfolio\SkillController@getskill')->name('get.skill');
+        Route::get('skills','Portfolio\SkillController@getskills')->name('get.skills');
         Route::get('inbox','InboxController@getInbox')->name('get.inbox');
         Route::get('inboxes','InboxController@getInboxes')->name('get.inboxes');
         Route::get('social','Settings\SiteController@getSocial')->name('get.social');
@@ -29,6 +31,9 @@ Route::middleware('auth')->group(function(){
         Route::post('delete/services','Portfolio\ServiceController@delete')->name('portfolio.delete.services')->middleware('demo');
 
         Route::get('skills','Portfolio\SkillController@index')->name('portfolio.skills');
+        Route::post('add/skill','Portfolio\SkillController@add')->name('portfolio.add.skill')->middleware('demo');
+        Route::post('update/skill','Portfolio\SkillController@update')->name('portfolio.update.skill')->middleware('demo');
+        Route::post('delete/skill','Portfolio\SkillController@delete')->name('portfolio.delete.skill')->middleware('demo');
         
         Route::get('projects','Portfolio\ProjectController@index')->name('portfolio.projects');
         Route::post('add/project','Portfolio\ProjectController@add')->name('portfolio.add.project')->middleware('demo');

@@ -61,6 +61,11 @@ class User extends Authenticatable
         return $this->hasMany(UserSocials::class);
     }
 
+    public function skills()
+    {
+        return $this->hasMany(UserSkill::class);
+    }
+
     /**
      * attributes
      */
