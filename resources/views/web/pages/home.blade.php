@@ -31,6 +31,21 @@
         </div>
     </div>
 
+    <div id="skills" class="container-fluid gray-bg d-flex flex-column align-items-center justify-content-center">
+        <h1 class="primary font-medium text-uppercase">@lang('My Skills')</h1>
+        <div class="container">
+            @foreach($user->skills as $skill)
+            <div class="progress-outer">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped" data-percent="{{$skill->percent}}"
+                    data-toggle="tooltip" title="{{$skill->name.' - '.$skill->percent.'%'}}"></div>
+                    <div class="progress-name">{{$skill->name}}</div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
     <div id="projects" class="container-fluid gray-bg d-flex flex-column align-items-center justify-content-center">
         <h1 class="light font-medium text-uppercase mb-5">@lang('My recent projects')</h1>
         <div class="container">
@@ -102,6 +117,13 @@
                         items:1
                     }
                 }
+            });
+
+            $('#skills').waypoint(function(){
+                $('#skills .progress-bar').each(function(i){
+                    $(this).css('width',$(this).data('percent')+'%');
+                    $(this).addClass('active');
+                });
             });
         });
     </script>

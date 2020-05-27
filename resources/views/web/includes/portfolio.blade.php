@@ -17,6 +17,7 @@
         <ul class="navbar container">
             <li id="l-intro" class="active"><a href="#intro">@lang('Intro')</a></li>
             <li id="l-services"><a href="#services">@lang('Services')</a></li>
+            <li id="l-skills"><a href="#skills">@lang('Skills')</a></li>
             <li id="l-projects"><a href="#projects">@lang('Projects')</a></li>
             <li id="l-resume"><a href="#resume">@lang('Resume')</a></li>
             <li id="l-contact"><a href="#contact">@lang('Get in touch')</a></li>
@@ -37,6 +38,9 @@
                     </li>
                     <li id="s-services" class="nav-item">
                         <a class="nav-link" href="#services">@lang('Services')</a>
+                    </li>
+                    <li id="s-skills" class="nav-item">
+                        <a class="nav-link" href="#skills">@lang('Skills')</a>
                     </li>
                     <li id="s-projects" class="nav-item">
                         <a class="nav-link" href="#projects">@lang('Projects')</a>
@@ -94,6 +98,12 @@
             $("#sticky-nav ul").children().removeClass("active");
             $("#l-services").addClass("active");
             $("#s-services").addClass("active");
+        });
+        $('#skills').waypoint(function(){
+            $("#nav ul").children().removeClass("active");
+            $("#sticky-nav ul").children().removeClass("active");
+            $("#l-skills").addClass("active");
+            $("#s-skills").addClass("active");
         });
         $('#projects').waypoint(function(){
             $("#nav ul").children().removeClass("active");

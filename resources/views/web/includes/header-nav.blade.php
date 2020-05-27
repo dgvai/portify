@@ -13,6 +13,9 @@
                 <li id="s-services" class="nav-item">
                     <a class="nav-link" href="{{route('home')}}#services">@lang('Services')</a>
                 </li>
+                <li id="s-skills" class="nav-item">
+                    <a class="nav-link" href="{{route('home')}}#skills">@lang('Skills')</a>
+                </li>
                 <li id="s-projects" class="nav-item">
                     <a class="nav-link" href="{{route('home')}}#projects">@lang('Projects')</a>
                 </li>

@@ -20,6 +20,7 @@
     :root {
         --color-primary : {{$primary}};
         --color-primary-a-5 : {{$primary.'BF'}};
+        --color-primary-a-25 : {{$primary.'40'}};
         --color-dark : #1a1a1a;
         --color-gray: #f2f2f2;
         --color-light: #fefefe;
@@ -370,6 +371,58 @@
         #services .service-items {
             flex-direction: column;
         }
+    }
+
+    #skills {
+        min-height: 100vh;
+    }
+
+    #skills .progress-outer{
+        background: #fff;
+        border-radius: 50px;
+        padding: 3px;
+        margin: 10px 0;
+        box-shadow: 0 0  10px rgba(209, 219, 231,0.7);
+    }
+    #skills .progress{
+        position: relative;
+        height: 1.25rem;
+        margin: 0;
+        overflow: visible;
+        border-radius: 50px;
+        background: #eaedf3;
+        box-shadow: inset 0 10px  10px rgba(244, 245, 250,0.9);
+    }
+    #skills .progress .progress-bar{
+        border-radius: 50px;
+        height: 1.25rem;
+        background-color: var(--color-primary);
+        box-shadow:-1px 10px 10px var(--color-primary-a-25);
+    }
+    #skills .progress .progress-name{
+        position: absolute;
+        left: 10px;
+        top: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--color-light);
+    }
+    #skills .progress .progress-value{
+        position: relative;
+        left: 2px;
+        top: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--color-primary);
+    }
+    #skills .progress-bar.active{
+        animation: reverse progress-bar-stripes 0.40s linear infinite, animate-positive 2s;
+    }
+    @-webkit-keyframes animate-positive{
+        0% { width: 0%; }
+    }
+    @keyframes animate-positive {
+        0% { width: 0%; }
     }
 
     #projects {
