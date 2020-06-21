@@ -238,6 +238,11 @@ return [
                     'icon' => 'fas fa-fw fa-file-pdf',
                     'route' => 'portfolio.resume'
                 ],
+                [
+                    'text' => 'Gallery',
+                    'icon' => 'fas fa-fw fa-images',
+                    'route' => 'portfolio.gallery'
+                ],
             ]
         ],
         [

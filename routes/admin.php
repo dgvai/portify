@@ -12,8 +12,10 @@ Route::middleware('auth')->group(function(){
         Route::get('projects','Portfolio\ProjectController@getProjects')->name('get.projects');
         Route::get('service','Portfolio\ServiceController@getService')->name('get.service');
         Route::get('services','Portfolio\ServiceController@getServices')->name('get.services');
-        Route::get('skill','Portfolio\SkillController@getskill')->name('get.skill');
-        Route::get('skills','Portfolio\SkillController@getskills')->name('get.skills');
+        Route::get('skill','Portfolio\SkillController@getSkill')->name('get.skill');
+        Route::get('skills','Portfolio\SkillController@getSkills')->name('get.skills');
+        Route::get('photo','Portfolio\GalleryController@getPhoto')->name('get.photo');
+        Route::get('photos','Portfolio\GalleryController@getPhotos')->name('get.photos');
         Route::get('inbox','InboxController@getInbox')->name('get.inbox');
         Route::get('inboxes','InboxController@getInboxes')->name('get.inboxes');
         Route::get('social','Settings\SiteController@getSocial')->name('get.social');
@@ -44,7 +46,10 @@ Route::middleware('auth')->group(function(){
         Route::post('resume/toggle','Portfolio\ResumeController@toggle')->name('portfolio.resume.toggle')->middleware('demo');
         Route::post('resume/upload','Portfolio\ResumeController@upload')->name('portfolio.resume.upload')->middleware('demo');
 
-
+        Route::get('gallery','Portfolio\GalleryController@index')->name('portfolio.gallery');
+        Route::post('add/gallery','Portfolio\GalleryController@add')->name('portfolio.add.gallery')->middleware('demo');
+        Route::post('update/gallery','Portfolio\GalleryController@update')->name('portfolio.update.gallery')->middleware('demo');
+        Route::post('delete/gallery','Portfolio\GalleryController@delete')->name('portfolio.delete.gallery')->middleware('demo');
     });
 
     Route::prefix('inbox')->group(function(){

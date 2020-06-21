@@ -66,6 +66,11 @@ class User extends Authenticatable
         return $this->hasMany(UserSkill::class);
     }
 
+    public function galleries()
+    {
+        return $this->hasMany(UserGallery::class);
+    }
+
     /**
      * attributes
      */
