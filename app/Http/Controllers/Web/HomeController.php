@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
         Visitor::track(request()->ip(),'home');
         $this->generateSeo();
-        $user = User::first();
+        $user = User::with('photo','projects','resume','services','titles','socials','skills','galleries')->first();
         return view('web.pages.home',['user' => $user]);
     }
 

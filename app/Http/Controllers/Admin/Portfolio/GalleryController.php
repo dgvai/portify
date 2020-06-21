@@ -34,7 +34,7 @@ class GalleryController extends Controller
         if($request->has('image'))
         {
             $filename = filename('gallery',$request->image->extension());
-            thumbnail($request->image, public_path('storage/user/gallery'), $filename,600,400);
+            resize($request->image, public_path('storage/user/gallery'), $filename, 1024);
         }
 
         $b = auth()->user()->galleries()->create([
@@ -58,7 +58,7 @@ class GalleryController extends Controller
         {
             unlink(public_path('storage/user/gallery').'/'.$gallery->image);
             $filename = filename('gallery',$request->image->extension());
-            thumbnail($request->image, public_path('storage/user/gallery'), $filename,600,400);
+            resize($request->image, public_path('storage/user/gallery'), $filename, 1024);
             $gallery->image = $filename;
         }
 

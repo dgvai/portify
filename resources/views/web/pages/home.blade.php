@@ -75,6 +75,25 @@
             </div>
         </div>
     </div>
+
+    <div id="gallery" class="container-fluid gray-bg">
+        <h1 class="primary font-medium text-uppercase text-center mb-4">@lang('Photo Gallery')</h1>
+        <div class="grid">
+            @foreach($user->galleries as $photo)
+            @php 
+            $size = getimagesize($photo->image_url);
+            $class = ($size[0] < $size[1]) ? 'item--large' : 'item--medium';
+            @endphp
+            <div class="item {{$class}}" style="background: url('{{$photo->image_url}}'); background-size: cover; background-position: center"
+                data-link="{{$photo->image_url}}">
+                <div class="item__details">
+                    {{$photo->caption}}
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
     @if(App\Models\System\Configuration::get('enable_resume') == 1)
     <div id="resume" class="container-fluid">
         <h1 class="primary wow fadeInUp">@lang('Willing to hire me?')</h1>
@@ -82,6 +101,16 @@
         <a href="{{route('download')}}" class="main-button wow fadeInUp"><i class="fas fa-file-download mr-2"></i> Download Resume</a>
     </div>
     @endif
+
+    <div class="modal fade" id="gallery-modal" tabindex="-1" role="dialog" aria-labelledby="galleryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <img id="preview" src="" class="img-responsive" width="100%" />
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -125,6 +154,11 @@
                     $(this).addClass('active');
                 });
             });
+
+            $('.item').click(function(){
+                $('#preview').attr('src',$(this).data('link'));
+                $('#gallery-modal').modal('show');
+            })
         });
     </script>
 @endsection

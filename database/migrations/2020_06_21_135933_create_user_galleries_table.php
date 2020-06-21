@@ -48,11 +48,6 @@ class CreateUserGalleriesTable extends Migration
                 'image' => 'gallery-5.jpg',
                 'caption' => 'Demo Caption Lorem Ipsum',
             ],
-            [
-                'user_id' => 1,
-                'image' => 'gallery-6.jpg',
-                'caption' => 'Demo Caption Lorem Ipsum',
-            ],
         ]);
     }
 
