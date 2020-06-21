@@ -749,6 +749,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 0.5s;
+    }
+
+    #contact .social:hover {
+       transform: scale(1.05);
+       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     }
 
     #contact .copyright {
@@ -799,12 +805,19 @@
     #blog .blog-head {
         height: 50vh;
         width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #blog h1 {
         font-size: 2.5rem;
         margin: 1rem 0;
         font-weight: 600;
+        color: var(--color-gray);
+        margin-top: 5rem;
+        text-shadow: 0 0 15px rgba(255,255,255,0.25);
     }
 
     #blog #post h1,h2,h3,h4,h5,h6 {
