@@ -22,8 +22,7 @@
         <h1 class="primary font-medium text-uppercase">@lang('Services, I provide with passion')</h1>
         <div class="service-items">
             @foreach($user->services as $service)
-            <div class="item d-flex flex-column text-center wow fadeInUp">
-                <img src="{{$service->svg_icon}}" class="icon"/>
+            <div class="item d-flex flex-column text-center wow fadeInUp" style="background-image: url('{{$service->svg_icon}}')">
                 <div class="text-uppercase my-3 font-medium">{{$service->title}}</div>
                 <div class="text-center text">{{$service->description}}</div>
             </div>
@@ -32,7 +31,8 @@
     </div>
 
     <div id="skills" class="container-fluid gray-bg d-flex flex-column align-items-center justify-content-center">
-        <h1 class="primary font-medium text-uppercase">@lang('My Skills')</h1>
+        <ul class="circles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+        <h1 class="primary font-medium text-uppercase mt-3 mb-5">@lang('My Skills')</h1>
         <div class="container">
             @foreach($user->skills as $skill)
             <div class="progress-outer">
@@ -52,7 +52,7 @@
             <div class="project-items owl-carousel owl-theme">
                 @foreach($user->projects as $project)
                 <div class="row justify-content-center">
-                    <div class="white-box item col-md-10 col-10">
+                    <div class="white-box item col-md-10 col-10 holder">
                         <div class="poster"><img class="img-responsive" src="{{$project->image_url}}"/></div>
                         <div class="data">
                             <h3 class="primary font-medium">{{$project->title}}</h3>
@@ -77,7 +77,7 @@
     </div>
 
     <div id="gallery" class="container-fluid gray-bg">
-        <h1 class="primary font-medium text-uppercase text-center mb-4">@lang('Photo Gallery')</h1>
+        <h1 class="primary font-medium text-uppercase text-center mt-3 mb-5">@lang('Photo Gallery')</h1>
         <div class="grid">
             @foreach($user->galleries as $photo)
             @php 
@@ -155,7 +155,7 @@
                 });
             });
 
-            $('.item').click(function(){
+            $('#gallery .item').click(function(){
                 $('#preview').attr('src',$(this).data('link'));
                 $('#gallery-modal').modal('show');
             })

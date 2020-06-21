@@ -139,6 +139,7 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, .5);
         text-decoration: none;
         color: var(--color-light);
+        transform: scale(1.05);
     }
 
     .dg-input i, .dg-input input, .dg-input textarea {
@@ -326,7 +327,12 @@
     }
 
     #services .service-items .item {
-        background: var(--color-primary);
+        background-color: var(--color-primary);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-blend-mode: soft-light;
+        background-origin: content-box;
         position: relative;
         padding: 3rem;
         border-radius: 10px;
@@ -340,18 +346,12 @@
     }
 
     #services .service-items .item:hover {
-        box-shadow: 0 0 20px rgba(0, 0, 0, .5)
-    }
-
-    #services .service-items .item .icon {
-        position: absolute;
-        width: 100%;
-        padding: 2rem;
-        left: 0;
-        top: 1rem;
-        color: var(--color-dark);
-        z-index: 10;
-        opacity: 0.35;
+        background-color: var(--color-gray);
+        color: var(--color-primary);
+        font-weight: 600;
+        font-size: 1.5rem;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+        transform: scale(1.1);
     }
 
     #services .service-items .item .text {
@@ -375,6 +375,7 @@
 
     #skills {
         min-height: 100vh;
+        position: relative;
     }
 
     #skills .progress-outer{
@@ -425,6 +426,13 @@
         0% { width: 0%; }
     }
 
+    @media only screen and (max-width: 768px) {
+        #skills h1 {
+            font-size: 1.25rem;
+            text-align: center;
+        }
+    }
+
     #projects {
         min-height: 100vh;
         z-index: 1;
@@ -433,6 +441,17 @@
     #projects .project-items {
         display: flex;
         justify-content: center;
+    }
+
+    #projects .project-items .holder {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        transition: all 0.5s;
+    }
+
+    #projects .project-items .holder:hover {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, .5);
     }
 
     #projects .project-items .item {
@@ -447,6 +466,7 @@
     #projects .project-items .item .poster img {
         width: 25rem;
         border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .5);
     }
 
     #projects .project-items .item .data {
@@ -541,6 +561,7 @@
         transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
         cursor: pointer;
         counter-increment: item-counter;
+        border-radius: 10px;
     }
 
     #gallery .item:after {
@@ -552,6 +573,7 @@
         opacity: 0.3;
         -webkit-transition: opacity 0.3s ease-in-out;
         transition: opacity 0.3s ease-in-out;
+        border-radius: 10px;
     }
 
     #gallery .item:hover {
@@ -582,6 +604,13 @@
         }
     }
 
+    @media only screen and (max-width: 768px) {
+        #gallery h1 {
+            font-size: 1.25rem;
+            text-align: center;
+        }
+    }
+
     @media only screen and (max-width: 480px) {
         #gallery {
             padding: 2rem;
@@ -603,6 +632,8 @@
         text-transform: lowercase;
         letter-spacing: 1px;
         color: #828282;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     #gallery .item__details:before {
