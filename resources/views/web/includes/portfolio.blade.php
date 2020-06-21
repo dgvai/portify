@@ -19,6 +19,7 @@
             <li id="l-services"><a href="#services">@lang('Services')</a></li>
             <li id="l-skills"><a href="#skills">@lang('Skills')</a></li>
             <li id="l-projects"><a href="#projects">@lang('Projects')</a></li>
+            <li id="l-gallery"><a href="#gallery">@lang('Gallery')</a></li>
             <li id="l-resume"><a href="#resume">@lang('Resume')</a></li>
             <li id="l-contact"><a href="#contact">@lang('Get in touch')</a></li>
         </ul>
@@ -44,6 +45,9 @@
                     </li>
                     <li id="s-projects" class="nav-item">
                         <a class="nav-link" href="#projects">@lang('Projects')</a>
+                    </li>
+                    <li id="s-gallery" class="nav-item">
+                        <a class="nav-link" href="#gallery">@lang('Gallery')</a>
                     </li>
                     <li id="s-resume" class="nav-item">
                         <a class="nav-link" href="#resume">@lang('Resume')</a>
@@ -110,6 +114,12 @@
             $("#sticky-nav ul").children().removeClass("active");
             $("#l-projects").addClass("active");
             $("#s-projects").addClass("active");
+        });
+        $('#gallery').waypoint(function(){
+            $("#nav ul").children().removeClass("active");
+            $("#sticky-nav ul").children().removeClass("active");
+            $("#l-gallery").addClass("active");
+            $("#s-gallery").addClass("active");
         });
         $('#resume').waypoint(function(){
             $("#nav ul").children().removeClass("active");
