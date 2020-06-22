@@ -20,7 +20,9 @@
             <li id="l-skills"><a href="#skills">@lang('Skills')</a></li>
             <li id="l-projects"><a href="#projects">@lang('Projects')</a></li>
             <li id="l-gallery"><a href="#gallery">@lang('Gallery')</a></li>
+            @if(App\Models\System\Configuration::get('enable_resume') == 1)
             <li id="l-resume"><a href="#resume">@lang('Resume')</a></li>
+            @endif
             <li id="l-contact"><a href="#contact">@lang('Get in touch')</a></li>
         </ul>
     </div>
@@ -49,9 +51,11 @@
                     <li id="s-gallery" class="nav-item">
                         <a class="nav-link" href="#gallery">@lang('Gallery')</a>
                     </li>
+                    @if(App\Models\System\Configuration::get('enable_resume') == 1)
                     <li id="s-resume" class="nav-item">
                         <a class="nav-link" href="#resume">@lang('Resume')</a>
                     </li>
+                    @endif
                     <li id="s-contact" class="nav-item">
                         <a class="nav-link" href="#contact">@lang('Get in touch')</a>
                     </li>

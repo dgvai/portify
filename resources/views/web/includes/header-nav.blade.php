@@ -22,9 +22,11 @@
                 <li id="s-gallery" class="nav-item">
                     <a class="nav-link" href="{{route('home')}}#gallery">@lang('Gallery')</a>
                 </li>
+                @if(App\Models\System\Configuration::get('enable_resume') == 1)
                 <li id="s-resume" class="nav-item">
                     <a class="nav-link" href="{{route('home')}}#resume">@lang('Resume')</a>
                 </li>
+                @endif
                 <li id="s-contact" class="nav-item">
                     <a class="nav-link" href="{{route('home')}}#contact">@lang('Get in touch')</a>
                 </li>
