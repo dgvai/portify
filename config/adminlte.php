@@ -219,6 +219,11 @@ return [
                     'route' => 'portfolio.basic'
                 ],
                 [
+                    'text' => 'Titles',
+                    'icon' => 'fas fa-fw fa-user-tag',
+                    'route' => 'portfolio.title'
+                ],
+                [
                     'text' => 'Services',
                     'icon' => 'fas fa-fw fa-star',
                     'route' => 'portfolio.services'

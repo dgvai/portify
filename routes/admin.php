@@ -10,6 +10,8 @@ Route::middleware('auth')->group(function(){
         Route::get('downloads','DashboardController@getDownloadLog')->name('get.downloads');
         Route::get('project','Portfolio\ProjectController@getProject')->name('get.project');
         Route::get('projects','Portfolio\ProjectController@getProjects')->name('get.projects');
+        Route::get('title','Portfolio\TitleController@getTitle')->name('get.title');
+        Route::get('titles','Portfolio\TitleController@getTitles')->name('get.titles');
         Route::get('service','Portfolio\ServiceController@getService')->name('get.service');
         Route::get('services','Portfolio\ServiceController@getServices')->name('get.services');
         Route::get('skill','Portfolio\SkillController@getSkill')->name('get.skill');
@@ -27,6 +29,11 @@ Route::middleware('auth')->group(function(){
         Route::post('update/data','Portfolio\DataController@updateData')->name('portfolio.update.data')->middleware('demo');
         Route::post('update/cover','Portfolio\DataController@updateCover')->name('portfolio.update.cover')->middleware('demo');
 
+        Route::get('title','Portfolio\TitleController@index')->name('portfolio.title');
+        Route::post('add/title','Portfolio\TitleController@add')->name('portfolio.add.title')->middleware('demo');
+        Route::post('update/title','Portfolio\TitleController@update')->name('portfolio.update.title')->middleware('demo');
+        Route::post('delete/title','Portfolio\TitleController@delete')->name('portfolio.delete.title')->middleware('demo');
+        
         Route::get('services','Portfolio\ServiceController@index')->name('portfolio.services');
         Route::post('add/services','Portfolio\ServiceController@add')->name('portfolio.add.services')->middleware('demo');
         Route::post('update/services','Portfolio\ServiceController@update')->name('portfolio.update.services')->middleware('demo');

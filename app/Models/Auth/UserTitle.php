@@ -12,4 +12,10 @@ class UserTitle extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    public static function vanish($id)
+    {
+        $title = self::find($id);
+        return $title->delete() ? true : false;
+    }
 }
