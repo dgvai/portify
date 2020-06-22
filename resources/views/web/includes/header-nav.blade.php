@@ -20,7 +20,7 @@
                     <a class="nav-link" href="{{route('home')}}#projects">@lang('Projects')</a>
                 </li>
                 <li id="s-gallery" class="nav-item">
-                    <a class="nav-link" href="#gallery">@lang('Gallery')</a>
+                    <a class="nav-link" href="{{route('home')}}#gallery">@lang('Gallery')</a>
                 </li>
                 <li id="s-resume" class="nav-item">
                     <a class="nav-link" href="{{route('home')}}#resume">@lang('Resume')</a>
