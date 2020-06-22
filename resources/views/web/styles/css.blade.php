@@ -490,7 +490,7 @@
         #projects .project-items .item {
             flex-direction: column;
             text-align: center;
-            min-height: 20rem;
+            min-height: 24rem;
         }
         #projects .project-items .item h3 {
             font-size: 1rem;
