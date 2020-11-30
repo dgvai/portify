@@ -2,7 +2,7 @@
     <div class="container holder">
         <div class="d-flex flex-column align-items-center p-5 wow fadeIn" data-wow-delay="0.5s">
             <div>
-                <div class="up font-lighter">@lang('it\'s')</div>
+                <div class="up font-lighter">@lang("it's")</div>
                 <div class="name" >
                     <span class="font-lighter">{{$user->data->first_name}}</span>
                     <span class="font-regular">{{$user->data->last_name}}</span>
